@@ -24,12 +24,13 @@ function App() {
     setUser(null);
   }
 
+
   return (
     <div>
       <Navbar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/sign-up" element={<SignupPage />} />
+        <Route path="/sign-up" element={<SignupPage/>} />
         <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
         <Route
           path="/dashboard"
