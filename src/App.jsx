@@ -7,6 +7,9 @@ import SignInPage from "./pages/SigninPage";
 import Dashboard from "./pages/Dashboard";
 import { logout } from "./services/authService";
 
+import PlanetPage from "./pages/PlanetPage";
+import PlanetDetails from "./pages/PlanetDetails"
+
 function App() {
   function  getUserFromToken (){
     const token = localStorage.getItem("token");
@@ -36,6 +39,8 @@ function App() {
           path="/dashboard"
           element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
         />
+        <Route path="/planets" element={user ? <PlanetPage/> : <Navigate to="/sign-in" />}/>
+        <Route path="/planets/:id" element={user ? <PlanetDetails/> : <Navigate to="/sign-in" />}/>
       </Routes>
     </div>
   );

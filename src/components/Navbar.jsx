@@ -8,6 +8,7 @@ function Navbar({ user, handleLogout }) {
       ? 
       (<>
         <Link to='/dashboard'>Dashboard</Link>
+        <Link to='/planets'>Planets</Link>
       <button onClick={handleLogout}>Sign Out</button>
       </>) : 
       (<>
