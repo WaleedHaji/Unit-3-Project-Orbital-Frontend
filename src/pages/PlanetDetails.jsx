@@ -24,7 +24,25 @@ function PlanetDetails({user}) {
   },[])
 
   return (
-    <div>PlanetDetails</div>
+    <div>
+      <h1>Planets Details</h1>
+
+      {planet ? (
+        <>
+          <h2>{planet.planetName}</h2>
+          <p>{planet.description}</p>
+          <p> <b>Type:</b> {planet.type} </p>
+          <p> <b>Diameter:</b> {planet.diameter} </p>
+          <p> <b>Distance from the Sun:</b> {planet.distanceFromTheSun} </p>
+          <p> <b>Number of Moons:</b> {planet.numberOfMoons} </p>
+         
+
+          {user.role ==  'admin' ? (<><button onClick={() => navigate(`/planets/${planet._id}`)}>Edit Planet</button>
+          <button onClick={deletedPlanet}>Delete Planet</button>
+          </>) : <></>}
+        </>)
+      : null}
+    </div>
   )
 }
 
