@@ -38,7 +38,7 @@ function PlanetDetails({user}) {
          
 
           {user.role ==  'admin' ? (<><button onClick={() => navigate(`/planets/${planet._id}`)}>Edit Planet</button>
-          <button onClick={deletedPlanet}>Delete Planet</button>
+          <button onClick={deletePlanet}>Delete Planet</button>
           </>) : <></>}
         </>)
       : null}
