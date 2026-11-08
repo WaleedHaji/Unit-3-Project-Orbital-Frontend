@@ -4,6 +4,7 @@ function Navbar({ user, handleLogout }) {
   return (
     <nav>
       <Link to='/'>Homepage</Link>
+      <Link to="/missions">Space Missions</Link>
       {user 
       ? 
       (<>

@@ -6,7 +6,7 @@ import Homepage from "./pages/Homepage";
 import SignInPage from "./pages/SigninPage";
 import Dashboard from "./pages/Dashboard";
 import { logout } from "./services/authService";
-
+import SpaceMissionsPage from "./pages/SpaceMissionsPage";
 function App() {
   function  getUserFromToken (){
     const token = localStorage.getItem("token");
@@ -32,6 +32,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/sign-up" element={<SignupPage/>} />
         <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
+        <Route path="/missions" element={<SpaceMissionsPage />} />
         <Route
           path="/dashboard"
           element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
