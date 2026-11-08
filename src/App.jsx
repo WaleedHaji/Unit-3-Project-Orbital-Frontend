@@ -6,6 +6,8 @@ import Homepage from "./pages/Homepage";
 import SignInPage from "./pages/SigninPage";
 import Dashboard from "./pages/Dashboard";
 import { logout } from "./services/authService";
+import CreatePlanet from './pages/CreateNewPlanet'
+import EditPlanet from "./pages/EditPlanet";
 
 function App() {
   function  getUserFromToken (){
@@ -36,6 +38,8 @@ function App() {
           path="/dashboard"
           element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
         />
+        <Route path="/planets/new" element={<CreatePlanet />} />
+        <Route path="/planets/:id/edit" element={<EditPlanet />} />
       </Routes>
     </div>
   );
