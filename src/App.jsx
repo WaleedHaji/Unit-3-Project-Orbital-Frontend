@@ -44,7 +44,7 @@ function App() {
         <Route path="/planets" element={user ? <PlanetPage/> : <Navigate to="/sign-in" />}/>
         <Route path="/planets/:planetId" element={user ? <PlanetDetails user={user}/> : <Navigate to="/sign-in" />}/>
         <Route path="/planets/new" element={<CreatePlanet />} />
-        <Route path="/planets/:id/edit" element={<EditPlanet />} />
+        <Route path="/planets/:planetId/edit" element={<EditPlanet />} />
       </Routes>
     </div>
   );
