@@ -9,6 +9,9 @@ import { logout } from "./services/authService";
 import CreatePlanet from './pages/CreateNewPlanet'
 import EditPlanet from "./pages/EditPlanet";
 
+import PlanetPage from "./pages/PlanetPage";
+import PlanetDetails from "./pages/PlanetDetails"
+
 function App() {
   function  getUserFromToken (){
     const token = localStorage.getItem("token");
@@ -38,6 +41,8 @@ function App() {
           path="/dashboard"
           element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
         />
+        <Route path="/planets" element={user ? <PlanetPage/> : <Navigate to="/sign-in" />}/>
+        <Route path="/planets/:planetId" element={user ? <PlanetDetails user={user}/> : <Navigate to="/sign-in" />}/>
         <Route path="/planets/new" element={<CreatePlanet />} />
         <Route path="/planets/:id/edit" element={<EditPlanet />} />
       </Routes>
