@@ -31,8 +31,8 @@ function PlanetDetails({user}) {
 
       {planet ? (
         <>
-          <h2>{planet.planetName}</h2>
-          <p>{planet.description}</p>
+          <h2>Planet Name:{planet.planetName}</h2>
+          <p><b>Description:</b>:{planet.description}</p>
           <p> <b>Type:</b> {planet.type} </p>
           <p> <b>Diameter:</b> {planet.diameter} </p>
           <p> <b>Distance from the Sun:</b> {planet.distanceFromTheSun} </p>

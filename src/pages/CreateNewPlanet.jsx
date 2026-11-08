@@ -11,7 +11,7 @@ const [formData, setFormData] = useState({
     type: "",
     diameter:"",
     distanceFromTheSun:"",
-    numberOfMoons:""
+    numberOfMoons:"",
 })
 
 const navigate = useNavigate()
@@ -35,7 +35,7 @@ async function handleSubmit(event) {
             }
         )
 
-        navigate('/')
+        navigate('/planets')
 
     } catch (error) {
         console.log(error)
