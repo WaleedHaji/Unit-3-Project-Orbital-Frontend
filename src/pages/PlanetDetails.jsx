@@ -39,7 +39,7 @@ function PlanetDetails({user}) {
           <p> <b>Number of Moons:</b> {planet.numberOfMoons} </p>
          
 
-          {user.role ==  'admin' ? (<><button onClick={() => navigate(`/planets/${planetId}`)}>Edit Planet</button>
+          {user.role ==  'admin' ? (<><button onClick={() => navigate(`/planets/${planetId}/edit`)}>Edit Planet</button>
           <button onClick={deletePlanet}>Delete Planet</button>
           </>) : <></>}
         </>)
