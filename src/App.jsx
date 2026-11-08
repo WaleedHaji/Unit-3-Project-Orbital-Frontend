@@ -6,6 +6,8 @@ import Homepage from "./pages/Homepage";
 import SignInPage from "./pages/SigninPage";
 import Dashboard from "./pages/Dashboard";
 import { logout } from "./services/authService";
+import CreatePlanet from './pages/CreateNewPlanet'
+import EditPlanet from "./pages/EditPlanet";
 
 import PlanetPage from "./pages/PlanetPage";
 import PlanetDetails from "./pages/PlanetDetails"
@@ -41,6 +43,8 @@ function App() {
         />
         <Route path="/planets" element={user ? <PlanetPage/> : <Navigate to="/sign-in" />}/>
         <Route path="/planets/:id" element={user ? <PlanetDetails/> : <Navigate to="/sign-in" />}/>
+        <Route path="/planets/new" element={<CreatePlanet />} />
+        <Route path="/planets/:id/edit" element={<EditPlanet />} />
       </Routes>
     </div>
   );
