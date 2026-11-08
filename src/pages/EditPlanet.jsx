@@ -51,7 +51,7 @@ function EditPlanet() {
                     numberOfMoons: Number(formData.numberOfMoons)
                 }
             )
-            navigate('/')
+            navigate(`/planets/${planetId}`)
         } catch (error) {
             console.log(error)
         }
