@@ -8,14 +8,16 @@ function PlanetDetails({user}) {
   const navigate = useNavigate()
 
   const { planetId } = useParams()
+  console.log(planetId)
 
   async function loadPlanet(){
     const response = await getPlanetById(planetId)
-    setPlanet(response.planet)
+    console.log(response)
+    setPlanet(response)
   }
 
     async function deletePlanet(){
-    const deletedPlanet = await deleteHootById(planetId)
+    const deletedPlanet = await deletePlanetById(planetId)
     navigate('/planets')
   }
 
@@ -37,7 +39,7 @@ function PlanetDetails({user}) {
           <p> <b>Number of Moons:</b> {planet.numberOfMoons} </p>
          
 
-          {user.role ==  'admin' ? (<><button onClick={() => navigate(`/planets/${planet._id}`)}>Edit Planet</button>
+          {user.role ==  'admin' ? (<><button onClick={() => navigate(`/planets/${planetId}`)}>Edit Planet</button>
           <button onClick={deletePlanet}>Delete Planet</button>
           </>) : <></>}
         </>)

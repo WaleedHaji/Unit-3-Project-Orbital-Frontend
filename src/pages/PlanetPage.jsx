@@ -8,7 +8,7 @@ function PlanetPage() {
 
     async function loadPlanets(){
       const response = await getAllPlanets()
-      setHoots(response)
+      setPlanets(response)
   }
 
   useEffect(()=>{

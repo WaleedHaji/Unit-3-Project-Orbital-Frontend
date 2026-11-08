@@ -42,7 +42,7 @@ function App() {
           element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
         />
         <Route path="/planets" element={user ? <PlanetPage/> : <Navigate to="/sign-in" />}/>
-        <Route path="/planets/:id" element={user ? <PlanetDetails/> : <Navigate to="/sign-in" />}/>
+        <Route path="/planets/:planetId" element={user ? <PlanetDetails user={user}/> : <Navigate to="/sign-in" />}/>
         <Route path="/planets/new" element={<CreatePlanet />} />
         <Route path="/planets/:id/edit" element={<EditPlanet />} />
       </Routes>
