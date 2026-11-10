@@ -16,7 +16,7 @@ export default function SolarSystem() {
     <>
       
       <Dialog hideDialog={hideDialog} dialogData={dialogData} />
-      <Canvas camera={{ position: [0, 20, 25], fov: 45 }}>
+      <Canvas camera={{ position: [35, 10, 10], fov: 45 }}>
         <Suspense fallback={null}>
           <Sun />
           {planetData.map((planet) => (
