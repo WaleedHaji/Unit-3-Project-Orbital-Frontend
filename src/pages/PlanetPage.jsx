@@ -16,14 +16,19 @@ function PlanetPage() {
   },[])
 
   return (
-    <div>
-      <h1>All Planets</h1>
-      {planets.map((onePlanet)=>
-      <div key={onePlanet._id}>
-        <h2>{onePlanet.planetName}</h2>
-        <Link to={`/planets/${onePlanet._id}`}>See Planet Details</Link>
+    <div className="planetPageDiv">
+      <div className="planetPageTitle">
+        <h1>All Planets</h1>
       </div>
-      )}
+      <div className="planetContainers">
+        {planets.map((onePlanet)=>
+        <div className="planetBoxesDiv" key={onePlanet._id}>  
+          <h2>{onePlanet.planetName}</h2>
+          <Link to={`/planets/${onePlanet._id}`}>See Planet Details</Link>
+        </div>
+        )}
+      </div>
+        
 
     </div>
   )
