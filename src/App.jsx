@@ -12,6 +12,7 @@ import EditPlanet from "./pages/EditPlanet";
 import PlanetPage from "./pages/PlanetPage";
 import PlanetDetails from "./pages/PlanetDetails"
 
+
 function App() {
   function  getUserFromToken (){
     const token = localStorage.getItem("token");
@@ -45,6 +46,7 @@ function App() {
         <Route path="/planets/:planetId" element={user ? <PlanetDetails user={user}/> : <Navigate to="/sign-in" />}/>
         <Route path="/planets/new" element={<CreatePlanet />} />
         <Route path="/planets/:id/edit" element={<EditPlanet />} />
+        <Route path="/admin" element={<Dashboard />} />
       </Routes>
     </div>
   );

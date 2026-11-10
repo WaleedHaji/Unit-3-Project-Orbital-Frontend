@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0b1025;
+    color: #ffffff;
+}
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background-color: #0b1025;
+}
+
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    padding: 25px 15px;
+    background-color: #11162e;
+    border-right: 1px solid #292d50;
+}
+
+.dashboard-main {
+    padding: 25px;
+}
+
+.header {
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin: 0 0 5px;
+}
+
+.header p {
+    color: #aeb5d2;
+    margin: 0;
+}
+
+/* sidebar */
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.sidebar p {
+    color: #aeb5d2;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar nav a {
+    color: #aeb5d2;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.sidebar nav a:hover {
+    background-color: #292d50;
+    color: white;
+}
+/* logout button */
+.sidebar button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 40px;
+    background-color: #292d50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.sidebar button:hover {
+    background-color: #493b83;
+}
+
+/* static section */
+.statics {
+    margin-top: 30px;
+}
+
+.statics h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.statics-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: #171e3d;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #292d50;
+}
+
+.stat-card h3 {
+    color: #aeb5d2;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.stat-card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+/* recent activity section  */
+.recent-activity {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #171e3d;
+    border: 1px solid #292d50;
+    border-radius: 12px;
+}
+
+.recent-activity h2 {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.recent-activity div {
+    padding: 12px 0;
+}
+
+.recent-activity p {
+    margin: 5px 0;
+    color: #aeb5d2;
+
+}
+/* /////////////////////////////////////////////////// */
+/* action section */
+.action {
+    margin-top: 30px;
+}
+
+.action h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.action button {
+    padding: 12px 20px;
+    margin-right: 12px;
+    margin-bottom: 10px;
+    background-color: #5141a5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.action button:hover {
+    background-color: #6958c7;
+}
+/* popular planet section */
+.board-planets {
+    margin-top: 30px;
+}
+
+.board-planets h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.board-planets div {
+    display: inline-block;
+    width: 200px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    padding: 18px;
+    background-color: #171e3d;
+    border: 1px solid #292d50;
+    border-radius: 12px;
+}
+
+.board-planets h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.board-planets p {
+    color: #aeb5d2;
+    font-size: 14px;
+}
+
+.board-planets button {
+    padding: 9px 12px;
+    background-color: #5141a5;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.board-planets button:hover {
+    background-color: #6958c7;
+}
+
+.board-planets a {
+    display: inline-block;
+    color: #a99aff;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.board-planets a:hover {
+    color: white;
+}
+.board-planets h2 {
+    display: inline-block;
+    margin-right: 650px;
+}
+
+.board-planets > a {
+    display: inline-block;
+    padding: 10px 18px;
+    color: white;
+    text-decoration: underline;
+    border-radius: 8px;
+
+}
+.board-planets > a:hover {
+    color: #B8A7FF;
+
+}
+
