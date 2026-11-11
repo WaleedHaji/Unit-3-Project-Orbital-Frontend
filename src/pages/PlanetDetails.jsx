@@ -116,7 +116,7 @@ function PlanetDetails({ user }) {
 
               <p>
                 <b>Distance from the Sun:</b>{" "}
-                {planet.distanceFromTheSun}
+                {planet.distanceFromTheSun} km
               </p>
 
               <p>
