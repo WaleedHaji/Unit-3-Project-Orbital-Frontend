@@ -6,8 +6,12 @@ import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useTexture } from "@react-three/drei"
 import "./PlanetDetails.css"
 
-function Planet({ image }) {
-  const texture = useTexture(image)
+function Planet({ planetName }) {
+  const textureName = planetName.toLowerCase()
+
+  const texture = useTexture(
+    `/textures/${textureName}.jpg`
+  )
 
   return (
     <mesh>
@@ -83,7 +87,7 @@ function PlanetDetails({ user }) {
                 <ambientLight intensity={1} />
                 <directionalLight position={[5, 5, 5]} />
 
-                <Planet image={planet.imageUrl} />
+                <Planet planetName={planet.planetName} />
 
                 <OrbitControls
                   enableZoom={true}
