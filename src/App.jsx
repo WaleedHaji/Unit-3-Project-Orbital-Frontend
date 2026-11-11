@@ -10,6 +10,9 @@ import { logout } from "./services/authService";
 
 import SpaceMissionsPage from "./pages/SpaceMissionsPage";
 import MissionDetails from "./pages/MissionDetails";
+import AstronautsPage from "./pages/AstronautsPage";
+import AstronautDetails from "./pages/AstronautDetails";
+
 
 import CreatePlanet from "./pages/CreateNewPlanet";
 import EditPlanet from "./pages/EditPlanet";
@@ -43,7 +46,8 @@ function App() {
 
         <Route path="/missions" element={<SpaceMissionsPage />} />
         <Route path="/missions/:missionId" element={<MissionDetails />} />
-
+        <Route path="/astronauts" element={<AstronautsPage />} />
+        <Route path="/astronauts/:astronautId" element={<AstronautDetails />} />
         <Route
           path="/dashboard"
           element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
