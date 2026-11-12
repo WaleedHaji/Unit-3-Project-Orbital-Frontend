@@ -10,32 +10,38 @@ function Signup() {
     password: "",
     passwordConf: "",
   });
-  const [ submitting, setSubmitting ] = useState(false)
+  const [image, setImage] = useState(null);
+
+  const [submitting, setSubmitting] = useState(false);
 
   const { username, password, passwordConf } = formData;
 
-  function handleChange(event){
+  function handleChange(event) {
     setError("");
     setFormData({ ...formData, [event.target.name]: event.target.value });
-
   }
 
-
-  async function handleSubmit(event){
+  async function handleSubmit(event) {
     event.preventDefault();
     try {
-      setSubmitting(true)
+      setSubmitting(true);
+      const data = new FormData();
+      data.append("username", username);
+      data.append("password", password);
+      if (image) data.append("image", image);
+
+      await signUp(data);
       await signUp(formData);
-      navigate('/sign-in')
+      navigate("/sign-in");
     } catch (err) {
       setError(err.response.data.message);
-      setSubmitting(false)
+      setSubmitting(false);
     }
   }
 
-  function isFormInvalid(){
+  function isFormInvalid() {
     return !(username && password && password === passwordConf);
-  };
+  }
 
   return (
     <main>
@@ -75,8 +81,18 @@ function Signup() {
             required
           />
         </div>
+        <label htmlFor="image">Profile picture:</label>
+        <input
+          id="image"
+          name="image"
+          type="file"
+          accept="image/*"
+          onChange={(event) => setImage(event.target.files[0] ?? null)}
+        />
         <div>
-          <button disabled={isFormInvalid() || submitting}>{submitting ? 'Signing up...' : 'Sign Up'}</button>
+          <button disabled={isFormInvalid() || submitting}>
+            {submitting ? "Signing up..." : "Sign Up"}
+          </button>
           <button onClick={() => navigate("/")}>Cancel</button>
         </div>
       </form>
