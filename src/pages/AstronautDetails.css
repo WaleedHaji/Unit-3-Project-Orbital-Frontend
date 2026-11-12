@@ -1,0 +1,248 @@
+
+.astronaut-details-page {
+  min-height: 100vh;
+  padding: 40px 5%;
+  color: #fff;
+  font-family: "Nunito", sans-serif;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(91, 76, 180, 0.15), transparent 30%),
+    linear-gradient(145deg, #070b1d, #10152e 55%, #080d20);
+}
+
+.astronaut-back-button {
+  margin-bottom: 25px;
+  padding: 11px 18px;
+  border: 1px solid rgba(169, 154, 255, 0.3);
+  border-radius: 9px;
+  color: #c4baff;
+  background: rgba(22, 29, 59, 0.8);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.astronaut-back-button:hover {
+  background: rgba(132, 111, 255, 0.2);
+}
+
+.astronaut-details-card {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid rgba(157, 145, 255, 0.2);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(27, 34, 70, 0.95), rgba(14, 20, 45, 0.95));
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.astronaut-details-label {
+  color: #a99aff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.astronaut-details-card h1 {
+  margin: 15px 0 10px;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 900;
+}
+
+.astronaut-details-agency {
+  color: #b7aaff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.astronaut-details-year {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 9px 15px;
+  border: 1px solid rgba(169, 154, 255, 0.25);
+  border-radius: 20px;
+  color: #c9c1ff;
+  background: rgba(132, 111, 255, 0.12);
+  font-size: 13px;
+}
+
+.astronaut-details-description {
+  max-width: 780px;
+  margin-top: 20px;
+  color: #c0c8dd;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.astronaut-details-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 30px;
+}
+
+.astronaut-details-actions button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 9px;
+  color: white;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.astronaut-edit-button {
+  background: linear-gradient(135deg, #7866e8, #a18aff);
+}
+
+.astronaut-edit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(132, 111, 255, 0.3);
+}
+
+.astronaut-delete-button {
+  background: linear-gradient(135deg, #a93659, #e05270);
+}
+
+.astronaut-delete-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(224, 82, 112, 0.25);
+}
+
+.astronaut-cancel-button {
+  background: #39415f;
+}
+
+.astronaut-cancel-button:hover {
+  background: #505a7d;
+}
+
+.astronaut-details-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.astronaut-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.astronaut-edit-form h1 {
+  margin-bottom: 15px;
+}
+
+.astronaut-edit-form label {
+  color: #c9c1ff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.astronaut-edit-form input,
+.astronaut-edit-form textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid rgba(157, 145, 255, 0.25);
+  border-radius: 9px;
+  outline: none;
+  color: white;
+  background: rgba(7, 11, 29, 0.7);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.astronaut-edit-form input:focus,
+.astronaut-edit-form textarea:focus {
+  border-color: #a99aff;
+}
+
+.astronaut-edit-form textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.astronaut-details-error {
+  margin-top: 20px;
+  color: #ff8298;
+}
+
+.astronaut-missions-section {
+  max-width: 1100px;
+  margin: 65px auto 0;
+}
+
+.astronaut-missions-section h2 {
+  margin-bottom: 25px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.astronaut-missions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.astronaut-mission-card {
+  overflow: hidden;
+  padding: 17px;
+  border: 1px solid rgba(157, 145, 255, 0.17);
+  border-radius: 15px;
+  background: rgba(22, 29, 59, 0.85);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.astronaut-mission-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(169, 154, 255, 0.65);
+  box-shadow: 0 12px 28px rgba(83, 65, 180, 0.18);
+}
+
+.astronaut-mission-card img {
+  width: 100%;
+  height: 170px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.astronaut-mission-card h3 {
+  margin: 15px 0 8px;
+  font-size: 18px;
+}
+
+.astronaut-mission-card p {
+  color: #aeb7d1;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .astronaut-details-page {
+    padding: 25px 4%;
+  }
+
+  .astronaut-details-card {
+    padding: 23px;
+  }
+
+  .astronaut-details-actions {
+    flex-direction: column;
+  }
+
+  .astronaut-details-actions button {
+    width: 100%;
+  }
+
+  .astronaut-missions-section h2 {
+    font-size: 25px;
+  }
+}
+.astronaut-profile-image {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+}
