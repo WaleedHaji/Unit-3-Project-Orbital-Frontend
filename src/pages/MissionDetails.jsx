@@ -15,7 +15,16 @@ function MissionDetails() {
   const [mission, setMission] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
+  const [imageFile, setImageFile] = useState(null);
   const [error, setError] = useState("");
+
+  const backendUrl = import.meta.env.VITE_BACK_END_SERVER_URL;
+
+  function getImageUrl(image) {
+    if (!image) return "";
+    if (image.startsWith("http")) return image;
+    return `${backendUrl}${image}`;
+  }
 
   useEffect(() => {
     async function fetchMission() {
@@ -39,13 +48,35 @@ function MissionDetails() {
     });
   }
 
+  function handleImageChange(event) {
+    setImageFile(event.target.files[0] || null);
+  }
+
   async function handleUpdate(event) {
     event.preventDefault();
 
     try {
-      const updatedMission = await updateMission(missionId, formData);
+      const missionData = new FormData();
+
+      missionData.append("missionName", formData.missionName);
+      missionData.append("spaceAgency", formData.spaceAgency);
+      missionData.append("description", formData.description);
+      missionData.append("launchDate", formData.launchDate);
+      missionData.append("status", formData.status);
+      missionData.append("destination", formData.destination);
+
+      if (imageFile) {
+        missionData.append("image", imageFile);
+      }
+
+      const updatedMission = await updateMission(
+        missionId,
+        missionData
+      );
+
       setMission(updatedMission);
       setFormData(updatedMission);
+      setImageFile(null);
       setIsEditing(false);
     } catch (error) {
       console.log(error);
@@ -151,12 +182,25 @@ function MissionDetails() {
               required
             />
 
-            <label>Image URL</label>
+            <label>Upload Mission Image</label>
             <input
-              name="image"
-              value={formData.image || ""}
-              onChange={handleChange}
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
             />
+
+            {imageFile && (
+              <p>Selected image: {imageFile.name}</p>
+            )}
+
+            {mission.image && (
+              <div className="details-hero-image">
+                <img
+                  src={getImageUrl(mission.image)}
+                  alt={mission.missionName}
+                />
+              </div>
+            )}
 
             <div className="edit-actions">
               <button type="submit" className="save-button">
@@ -168,6 +212,7 @@ function MissionDetails() {
                 className="cancel-button"
                 onClick={() => {
                   setFormData(mission);
+                  setImageFile(null);
                   setIsEditing(false);
                 }}
               >
@@ -182,7 +227,7 @@ function MissionDetails() {
             <div className="details-hero-image">
               {mission.image && (
                 <img
-                  src={mission.image}
+                  src={getImageUrl(mission.image)}
                   alt={mission.missionName}
                 />
               )}
