@@ -7,6 +7,7 @@ import {
   deleteAstronaut,
 } from "../services/astronautServices";
 import "./AstronautDetails.css";
+import Starfield from "../components/Starfield";
 
 function AstronautDetails() {
   const { astronautId } = useParams();
@@ -116,6 +117,7 @@ function AstronautDetails() {
 
   return (
     <main className="astronaut-details-page">
+        <Starfield />
       <button
         className="astronaut-back-button"
         onClick={() => navigate("/astronauts")}

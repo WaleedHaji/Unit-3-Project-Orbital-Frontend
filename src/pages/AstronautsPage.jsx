@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllAstronauts } from "../services/astronautServices";
 import { useNavigate } from "react-router";
 import "./AstronautsPage.css";
-
+import Starfield from "../components/Starfield";
 function AstronautsPage() {
   const [astronauts, setAstronauts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -50,6 +50,7 @@ function AstronautsPage() {
 
   return (
     <main className="astronauts-page">
+        <Starfield />
       <section className="astronauts-hero">
         <div className="astronauts-hero-content">
           <div className="astronauts-eyebrow">
