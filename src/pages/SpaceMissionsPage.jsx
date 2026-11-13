@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllMissions } from "../services/spaceMissionServices";
 import { useNavigate } from "react-router";
 import "./SpaceMissionsPage.css";
-
+import Starfield from "../components/Starfield";
 function SpaceMissionsPage() {
   const [missions, setMissions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -84,6 +84,7 @@ function SpaceMissionsPage() {
 
   return (
     <main className="missions-page">
+       <Starfield />
       <section className="missions-hero">
         <div className="hero-content">
           <div className="hero-eyebrow">
@@ -153,7 +154,7 @@ function SpaceMissionsPage() {
               <p className="section-kicker">MISSION SPOTLIGHT</p>
               <h2>Featured <span>Mission</span></h2>
             </div>
-            <span className="featured-tag">✦ EDITOR'S PICK</span>
+          
           </div>
 
           <article className="featured-mission">

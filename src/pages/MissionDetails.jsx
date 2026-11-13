@@ -7,7 +7,7 @@ import {
   deleteMission,
 } from "../services/spaceMissionServices";
 import "./MissionDetails.css";
-
+import Starfield from "../components/Starfield";
 function MissionDetails() {
   const { missionId } = useParams();
   const navigate = useNavigate();
@@ -115,6 +115,7 @@ function MissionDetails() {
 
   return (
     <main className="mission-details-page">
+        <Starfield />
       <button
         className="back-button"
         onClick={() => navigate("/missions")}
