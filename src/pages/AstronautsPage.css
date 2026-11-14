@@ -200,11 +200,16 @@
 .astronaut-card {
   overflow: hidden;
   padding: 22px;
-  border: 1px solid rgba(157, 145, 255, 0.16);
+  border: 1px solid rgba(157, 145, 255, 0.2);
   border-radius: 18px;
-  background: linear-gradient(145deg, rgba(27, 34, 70, 0.95), rgba(14, 20, 45, 0.95));
+  background: linear-gradient(
+    145deg,
+    #10162e,
+    #090e20
+  );
   cursor: pointer;
   transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .astronaut-card:hover {

@@ -45,9 +45,16 @@ function App() {
         <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
 
         <Route path="/missions" element={<SpaceMissionsPage />} />
-        <Route path="/missions/:missionId" element={<MissionDetails />} />
+        <Route
+        path="/missions/:missionId"
+        element={<MissionDetails user={user} />}
+       />
         <Route path="/astronauts" element={<AstronautsPage />} />
-        <Route path="/astronauts/:astronautId" element={<AstronautDetails />} />
+        
+        <Route
+        path="/astronauts/:astronautId"
+        element={<AstronautDetails user={user} />}
+        />
         <Route
           path="/dashboard"
           element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
