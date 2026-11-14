@@ -9,9 +9,10 @@ import {
 import "./AstronautDetails.css";
 import Starfield from "../components/Starfield";
 
-function AstronautDetails() {
+function AstronautDetails({ user }) {
   const { astronautId } = useParams();
   const navigate = useNavigate();
+  const isAdmin = user?.role === "admin";
 
   const [astronaut, setAstronaut] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -64,6 +65,9 @@ function AstronautDetails() {
 
   async function handleUpdate(event) {
     event.preventDefault();
+
+    if (!isAdmin) return;
+
     setSaving(true);
     setError("");
 
@@ -84,7 +88,15 @@ function AstronautDetails() {
         astronautData
       );
 
-      setAstronaut(updatedAstronaut);
+      const refreshedAstronaut = await getAstronautById(astronautId);
+      setAstronaut(refreshedAstronaut);
+      setFormData({
+        astronautName: refreshedAstronaut.astronautName || "",
+        spaceAgency: refreshedAstronaut.spaceAgency || "",
+        debutYear: refreshedAstronaut.debutYear || "",
+        description: refreshedAstronaut.description || "",
+      });
+
       setImageFile(null);
       setIsEditing(false);
     } catch (error) {
@@ -96,6 +108,8 @@ function AstronautDetails() {
   }
 
   async function handleDelete() {
+    if (!isAdmin) return;
+
     const confirmed = window.confirm(
       "Are you sure you want to delete this astronaut?"
     );
@@ -117,7 +131,8 @@ function AstronautDetails() {
 
   return (
     <main className="astronaut-details-page">
-        <Starfield />
+      <Starfield />
+
       <button
         className="astronaut-back-button"
         onClick={() => navigate("/astronauts")}
@@ -152,87 +167,83 @@ function AstronautDetails() {
               {astronaut.description}
             </p>
 
-            <div className="astronaut-details-actions">
-              <button
-                className="astronaut-edit-button"
-                onClick={() => setIsEditing(true)}
-              >
-                Edit Astronaut
-              </button>
+            {isAdmin && (
+              <div className="astronaut-details-actions">
+                <button
+                  className="astronaut-edit-button"
+                  onClick={() => setIsEditing(true)}
+                >
+                  Edit Astronaut
+                </button>
 
-              <button
-                className="astronaut-delete-button"
-                onClick={handleDelete}
-              >
-                Delete Astronaut
-              </button>
-            </div>
+                <button
+                  className="astronaut-delete-button"
+                  onClick={handleDelete}
+                >
+                  Delete Astronaut
+                </button>
+              </div>
+            )}
           </>
         ) : (
-          <form className="astronaut-edit-form" onSubmit={handleUpdate}>
-            <h1>Edit Astronaut</h1>
+          isAdmin && (
+            <form className="astronaut-edit-form" onSubmit={handleUpdate}>
+              <h1>Edit Astronaut</h1>
 
-            <label>Astronaut Name</label>
-            <input
-              type="text"
-              name="astronautName"
-              value={formData.astronautName}
-              onChange={handleChange}
-              required
-            />
-
-            <label>Space Agency</label>
-            <input
-              type="text"
-              name="spaceAgency"
-              value={formData.spaceAgency}
-              onChange={handleChange}
-              required
-            />
-
-            <label>Debut Year</label>
-            <input
-              type="number"
-              name="debutYear"
-              value={formData.debutYear}
-              onChange={handleChange}
-              required
-            />
-
-            <label>Description</label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows="5"
-              required
-            />
-
-            <label>Upload Astronaut Image</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-            />
-
-            {imageFile && (
-              <p>Selected image: {imageFile.name}</p>
-            )}
-
-            {astronaut.image && (
-              <img
-                className="astronaut-profile-image"
-                src={getImageUrl(astronaut.image)}
-                alt="Current astronaut"
+              <label>Astronaut Name</label>
+              <input
+                type="text"
+                name="astronautName"
+                value={formData.astronautName}
+                onChange={handleChange}
+                required
               />
-            )}
 
-            <div className="astronaut-details-actions">
-              <button
-                type="submit"
-                className="astronaut-edit-button"
-                disabled={saving}
-              >
+              <label>Space Agency</label>
+              <input
+                type="text"
+                name="spaceAgency"
+                value={formData.spaceAgency}
+                onChange={handleChange}
+                required
+              />
+
+              <label>Debut Year</label>
+              <input
+                type="number"
+                name="debutYear"
+                value={formData.debutYear}
+                onChange={handleChange}
+                required
+              />
+
+              <label>Description</label>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                rows="5"
+                required
+              />
+
+              <label>Upload Astronaut Image</label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+
+              {imageFile && <p>Selected image: {imageFile.name}</p>}
+
+              {astronaut.image && (
+                <img
+                  className="astronaut-profile-image"
+                  src={getImageUrl(astronaut.image)}
+                  alt="Current astronaut"
+                />
+              )}
+
+              <button type="submit" disabled={saving}>
                 {saving ? "Saving..." : "Save Changes"}
               </button>
 
@@ -252,8 +263,8 @@ function AstronautDetails() {
               >
                 Cancel
               </button>
-            </div>
-          </form>
+            </form>
+          )
         )}
 
         {error && <p className="astronaut-details-error">{error}</p>}
@@ -272,7 +283,7 @@ function AstronautDetails() {
               >
                 {mission.image && (
                   <img
-                    src={mission.image}
+                    src={getImageUrl(mission.image)}
                     alt={mission.missionName}
                   />
                 )}

@@ -28,10 +28,10 @@
   max-width: 950px;
   margin: 0 auto;
   padding: 40px;
-  border: 1px solid rgba(157, 145, 255, 0.2);
+  border: 1px solid rgba(157, 145, 255, 0.22);
   border-radius: 20px;
-  background: linear-gradient(145deg, rgba(27, 34, 70, 0.95), rgba(14, 20, 45, 0.95));
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(145deg, #10162e, #090e20);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .astronaut-details-label {

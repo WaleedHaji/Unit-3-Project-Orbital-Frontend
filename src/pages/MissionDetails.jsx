@@ -8,9 +8,11 @@ import {
 } from "../services/spaceMissionServices";
 import "./MissionDetails.css";
 import Starfield from "../components/Starfield";
-function MissionDetails() {
+
+function MissionDetails({ user }) {
   const { missionId } = useParams();
   const navigate = useNavigate();
+  const isAdmin = user?.role === "admin";
 
   const [mission, setMission] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -55,6 +57,8 @@ function MissionDetails() {
   async function handleUpdate(event) {
     event.preventDefault();
 
+    if (!isAdmin) return;
+
     try {
       const missionData = new FormData();
 
@@ -69,13 +73,11 @@ function MissionDetails() {
         missionData.append("image", imageFile);
       }
 
-      const updatedMission = await updateMission(
-        missionId,
-        missionData
-      );
+      await updateMission(missionId, missionData);
 
-      setMission(updatedMission);
-      setFormData(updatedMission);
+      const refreshedMission = await getMissionById(missionId);
+      setMission(refreshedMission);
+      setFormData(refreshedMission);
       setImageFile(null);
       setIsEditing(false);
     } catch (error) {
@@ -85,6 +87,8 @@ function MissionDetails() {
   }
 
   async function handleDelete() {
+    if (!isAdmin) return;
+
     const confirmed = window.confirm(
       "Are you sure you want to delete this mission?"
     );
@@ -115,7 +119,8 @@ function MissionDetails() {
 
   return (
     <main className="mission-details-page">
-        <Starfield />
+      <Starfield />
+
       <button
         className="back-button"
         onClick={() => navigate("/missions")}
@@ -123,7 +128,7 @@ function MissionDetails() {
         ← Back to Missions
       </button>
 
-      {isEditing ? (
+      {isEditing && isAdmin ? (
         <section className="mission-edit-container">
           <p className="details-label">MISSION MANAGEMENT</p>
           <h1>Edit Mission</h1>
@@ -328,21 +333,23 @@ function MissionDetails() {
             )}
           </section>
 
-          <section className="mission-management">
-            <button
-              className="edit-mission-button"
-              onClick={() => setIsEditing(true)}
-            >
-              Edit Mission
-            </button>
+          {isAdmin && (
+            <section className="mission-management">
+              <button
+                className="edit-mission-button"
+                onClick={() => setIsEditing(true)}
+              >
+                Edit Mission
+              </button>
 
-            <button
-              className="delete-mission-button"
-              onClick={handleDelete}
-            >
-              Delete Mission
-            </button>
-          </section>
+              <button
+                className="delete-mission-button"
+                onClick={handleDelete}
+              >
+                Delete Mission
+              </button>
+            </section>
+          )}
         </>
       )}
     </main>
