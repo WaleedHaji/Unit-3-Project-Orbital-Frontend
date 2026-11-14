@@ -4,6 +4,7 @@ import "./Starfield.css";
 
 function Starfield() {
   const [stars, setStars] = useState([]);
+  const [shootingStars, setShootingStars] = useState([]);
 
   useEffect(() => {
     const newStars = Array.from({ length: 120 }, (_, index) => ({
@@ -16,6 +17,27 @@ function Starfield() {
     }));
 
     setStars(newStars);
+
+    const interval = setInterval(() => {
+      const id = Date.now();
+
+      setShootingStars((current) => [
+        ...current,
+        {
+          id,
+          left: Math.random() * 70 + 20,
+          top: Math.random() * 50,
+        },
+      ]);
+
+      setTimeout(() => {
+        setShootingStars((current) =>
+          current.filter((star) => star.id !== id)
+        );
+      }, 1600);
+    }, 4000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -31,6 +53,17 @@ function Starfield() {
             height: `${star.size}px`,
             animationDuration: `${star.duration}s`,
             animationDelay: `${star.delay}s`,
+          }}
+        />
+      ))}
+
+      {shootingStars.map((star) => (
+        <span
+          key={star.id}
+          className="shooting-star"
+          style={{
+            left: `${star.left}%`,
+            top: `${star.top}%`,
           }}
         />
       ))}
