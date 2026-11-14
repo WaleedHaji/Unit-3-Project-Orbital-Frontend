@@ -6,7 +6,7 @@ function Starfield() {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    const newStars = Array.from({ length: 250 }, (_, index) => ({
+    const newStars = Array.from({ length: 120 }, (_, index) => ({
       id: index,
       left: Math.random() * 100,
       top: Math.random() * 100,
