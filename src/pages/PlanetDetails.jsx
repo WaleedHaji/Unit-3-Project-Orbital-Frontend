@@ -100,7 +100,7 @@ function PlanetDetails({ user }) {
             {/* PLANET INFORMATION */}
             <div className="planet-information">
 
-              <h2>{planet.planetName}</h2>
+              
 
               <p>
                 <b>Description:</b> {planet.description}
@@ -111,7 +111,7 @@ function PlanetDetails({ user }) {
               </p>
 
               <p>
-                <b>Diameter:</b> {planet.diameter}
+                <b>Diameter:</b> {planet.diameter} km
               </p>
 
               <p>
