@@ -7,7 +7,7 @@
   color: #ffffff;
   font-family: "Nunito", sans-serif;
   background:
-    radial-gradient(circle at 80% 10%, rgba(91, 76, 180, 0.16), transparent 30%),
+    radial-gradient(circle at 80% 10%, #17183b, transparent 30%),
     linear-gradient(145deg, #070b1d, #10152e 55%, #080d20);
 }
 
@@ -18,10 +18,10 @@
   align-items: center;
   overflow: hidden;
   padding: 55px 7%;
-  border: 1px solid rgba(157, 145, 255, 0.15);
+  border: 1px solid #302d5c;
   border-radius: 24px;
   background:
-    linear-gradient(90deg, rgba(7, 11, 29, 0.98), rgba(9, 13, 34, 0.75)),
+    linear-gradient(90deg, #070b1d, #10152e),
     url("https://images-assets.nasa.gov/image/iss070e045123/iss070e045123~orig.jpg") center/cover;
 }
 
@@ -72,7 +72,7 @@
   height: 3px;
   margin-top: 25px;
   border-radius: 5px;
-  background: linear-gradient(90deg, #9b8cff, transparent);
+  background: linear-gradient(90deg, #9b8cff, #6250aa);
 }
 
 .astronauts-hero-orbit {
@@ -91,12 +91,12 @@
   left: 78px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #b8a8ff, #6250aa 55%, #211b4f);
-  box-shadow: 0 0 60px rgba(140, 120, 255, 0.45);
+  box-shadow: 0 0 60px #6250aa;
 }
 
 .astronauts-orbit {
   position: absolute;
-  border: 1px solid rgba(183, 169, 255, 0.35);
+  border: 1px solid #8274c4;
   border-radius: 50%;
 }
 
@@ -125,9 +125,9 @@
 .astronaut-stat {
   min-width: 180px;
   padding: 20px 25px;
-  border: 1px solid rgba(157, 145, 255, 0.15);
+  border: 1px solid #302d5c;
   border-radius: 15px;
-  background: rgba(23, 29, 59, 0.65);
+  background: #171d3b;
 }
 
 .astronaut-stat-number {
@@ -167,9 +167,9 @@
   max-width: 430px;
   margin: 28px 0;
   padding: 13px 17px;
-  border: 1px solid rgba(157, 145, 255, 0.22);
+  border: 1px solid #393568;
   border-radius: 12px;
-  background: rgba(22, 29, 59, 0.8);
+  background: #161d3b;
 }
 
 .astronauts-search span {
@@ -200,22 +200,18 @@
 .astronaut-card {
   overflow: hidden;
   padding: 22px;
-  border: 1px solid rgba(157, 145, 255, 0.2);
+  border: 1px solid #34315f;
   border-radius: 18px;
-  background: linear-gradient(
-    145deg,
-    #10162e,
-    #090e20
-  );
+  background: linear-gradient(145deg, #10162e, #090e20);
   cursor: pointer;
   transition: 0.3s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px #050817;
 }
 
 .astronaut-card:hover {
   transform: translateY(-7px);
-  border-color: rgba(169, 154, 255, 0.7);
-  box-shadow: 0 15px 35px rgba(83, 65, 180, 0.2);
+  border-color: #a99aff;
+  box-shadow: 0 15px 35px #30245e;
 }
 
 .astronaut-card-top {
@@ -231,10 +227,10 @@
   justify-content: center;
   width: 58px;
   height: 58px;
-  border: 1px solid rgba(177, 163, 255, 0.5);
+  border: 1px solid #8876d5;
   border-radius: 50%;
   color: #d9d1ff;
-  background: rgba(132, 111, 255, 0.2);
+  background: #42366f;
   font-size: 24px;
   font-weight: 900;
 }
@@ -273,7 +269,7 @@
   justify-content: space-between;
   margin-top: 22px;
   padding-top: 15px;
-  border-top: 1px solid rgba(157, 145, 255, 0.15);
+  border-top: 1px solid #302d5c;
   color: #c4baff;
   font-size: 13px;
   font-weight: 800;
@@ -300,7 +296,7 @@
 .astronauts-footer > span {
   width: 65px;
   height: 1px;
-  background: rgba(157, 145, 255, 0.3);
+  background: #49416e;
 }
 
 .astronauts-footer p span {
@@ -315,7 +311,7 @@
   width: 45px;
   height: 45px;
   margin: 0 auto 20px;
-  border: 3px solid rgba(169, 154, 255, 0.2);
+  border: 3px solid #302d5c;
   border-top-color: #a99aff;
   border-radius: 50%;
   animation: astronaut-spin 1s linear infinite;
