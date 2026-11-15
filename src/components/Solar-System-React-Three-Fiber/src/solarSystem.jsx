@@ -74,9 +74,9 @@ function Planet({
   });
 
   return (
-    <>
+  <>
+    <group ref={planetRef}>
       <mesh
-        ref={planetRef}
         onClick={() => {
           setDialogData({ name, gravity, orbitalPeriod, surfaceArea });
         }}
@@ -87,8 +87,22 @@ function Planet({
           <div className="annotation">{name}</div>
         </Html>
       </mesh>
-      <Ecliptic xRadius={xRadius} zRadius={zRadius} />
-    </>
+
+      {name === "Saturn" && (
+        <mesh rotation={[Math.PI / 2.5, 0, 0]}>
+          <ringGeometry args={[size * 1.3, size * 2.3, 128]} />
+          <meshStandardMaterial
+            color="#c9b58b"
+            side={THREE.DoubleSide}
+            transparent
+            opacity={0.85}
+          />
+        </mesh>
+      )}
+    </group>
+
+    <Ecliptic xRadius={xRadius} zRadius={zRadius} />
+  </>
   );
 }
 
