@@ -92,13 +92,10 @@ function CreateMission() {
           </Link>
         </nav>
 
-        <button
-          className="logout-button"
-          onClick={() => navigate("/dashboard")}
-        >
-          <LogOut size={20} />
-          Back to Dashboard
-        </button>
+      <button className="logout-button">
+    <LogOut size={20} />
+    Logout
+</button>
       </aside>
 
       <div className="cp-page">

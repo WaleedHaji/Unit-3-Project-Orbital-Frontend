@@ -93,10 +93,10 @@ function CreatePlanet() {
                         Planets
                     </Link>
 
-                    <Link to="/space-missions">
-                        <Rocket size={20} />
-                        Space Missions
-                    </Link>
+                   <Link to="/missions">
+                   <Rocket size={20} />
+                   Space Missions
+                  </Link>
 
                     <Link to="/astronauts">
                         <UserRound size={20} />
