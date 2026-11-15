@@ -6,6 +6,7 @@ import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useTexture } from "@react-three/drei"
 import "./PlanetDetails.css"
 
+
 function Planet({ planetName }) {
   const textureName = planetName.toLowerCase()
 
@@ -13,13 +14,65 @@ function Planet({ planetName }) {
     `/textures/${textureName}.jpg`
   )
 
+  const isSaturn = textureName === "saturn"
+  const isSun = textureName === "sun"
+
   return (
-    <mesh>
-      <sphereGeometry args={[2, 64, 64]} />
-      <meshStandardMaterial map={texture} />
-    </mesh>
+    <group>
+
+      {/* PLANET SPHERE */}
+      <mesh>
+        <sphereGeometry args={[2, 64, 64]} />
+
+        <meshStandardMaterial
+          map={texture}
+          emissive={isSun ? "white" : "black"}
+          emissiveMap={isSun ? texture : null}
+          emissiveIntensity={isSun ? 1.5 : 0}
+        />
+      </mesh>
+
+      {/* SATURN'S RINGS */}
+      {isSaturn && (
+        <group rotation={[Math.PI / 2.5, 0, 0]}>
+
+          {/* INNER RING */}
+          <mesh>
+            <ringGeometry args={[2.3, 2.8, 128]} />
+            <meshStandardMaterial
+              color="#9e8764"
+              side={2}
+              roughness={0.9}
+            />
+          </mesh>
+
+          {/* MIDDLE RING */}
+          <mesh>
+            <ringGeometry args={[2.8, 3.5, 128]} />
+            <meshStandardMaterial
+              color="#d6c19b"
+              side={2}
+              roughness={0.8}
+            />
+          </mesh>
+
+          {/* OUTER RING */}
+          <mesh>
+            <ringGeometry args={[3.5, 4, 128]} />
+            <meshStandardMaterial
+              color="#a18b69"
+              side={2}
+              roughness={1}
+            />
+          </mesh>
+
+        </group>
+      )}
+
+    </group>
   )
 }
+
 
 function PlanetDetails({ user }) {
   const [planet, setPlanet] = useState(null)
@@ -100,7 +153,7 @@ function PlanetDetails({ user }) {
             {/* PLANET INFORMATION */}
             <div className="planet-information">
 
-              <h2>{planet.planetName}</h2>
+              
 
               <p>
                 <b>Description:</b> {planet.description}
@@ -111,7 +164,7 @@ function PlanetDetails({ user }) {
               </p>
 
               <p>
-                <b>Diameter:</b> {planet.diameter}
+                <b>Diameter:</b> {planet.diameter} km
               </p>
 
               <p>
