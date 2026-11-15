@@ -19,6 +19,7 @@ import EditPlanet from "./pages/EditPlanet";
 import PlanetPage from "./pages/PlanetPage";
 import PlanetDetails from "./pages/PlanetDetails";
 
+
 function App() {
   function getUserFromToken() {
     const token = localStorage.getItem("token");
@@ -37,6 +38,13 @@ function App() {
 
   return (
     <div>
+      {user && user.role !== "admin" && (
+        <Navbar user={user} handleLogout={handleLogout} />
+      )}      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/sign-up" element={<SignupPage />} />
+        <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
+        {/* <Route
       <Navbar user={user} handleLogout={handleLogout} />
 
       <Routes>
@@ -58,7 +66,18 @@ function App() {
         <Route
           path="/dashboard"
           element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
+        /> */}
+        <Route
+          path="/dashboard"
+          element={user ? <Dashboard user={user} handleLogout={handleLogout} /> : <Navigate to="/sign-in" />}
         />
+        <Route path="/planets" element={user ? <PlanetPage /> : <Navigate to="/sign-in" />} />
+        <Route path="/planets/:planetId" element={user ? <PlanetDetails user={user} /> : <Navigate to="/sign-in" />} />
+        <Route path="/planets/new" element={<CreatePlanet />} />
+        <Route path="/planets/:id/edit" element={<EditPlanet />} />
+        <Route path="/admin" element={<Dashboard />} />
+        <Route path="/planets/new" element={user ? <CreatePlanet user={user} /> : <Navigate to="/sign-in" />} />
+        <Route path="/planets/:id/edit" element={user ? <EditPlanet user={user} /> : <Navigate to="/sign-in" />} />
 
         <Route
           path="/planets"

@@ -1,0 +1,605 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0b1025;
+    color: #ffffff;
+}
+.dashboard-container {
+    display: flex;
+    min-height: 100%;
+    background-image: url('../pictues/space-background.png')
+}
+
+.sidebar {
+    width: 350px;
+    height: 100vh;
+    padding: 25px 15px;
+    background-color: #11162e;
+}
+
+.dashboard-main {
+    padding: 20px;
+}
+
+.header {
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin: 0 0 5px;
+}
+
+.header p {
+    color: #aeb5d2;
+    margin: 0;
+}
+
+
+/* Sidebar */
+.sidebar {
+    width: 350px;
+    height: 100%;
+    padding: 20px 12px;
+    background-color: #11162e;
+}
+
+/* Logo */
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    color: #b8a7ff;
+}
+
+.sidebar-logo h2 {
+    font-size: 15px;
+    margin: 0 0 5px;
+    color: white;
+}
+
+.sidebar-logo p {
+    font-size: 11px;
+    color: #aeb5d2;
+    margin: 0;
+}
+
+/* Navigation */
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #aeb5d2;
+    text-decoration: none;
+    padding: 12px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.sidebar nav a:hover {
+    background-color: #292d50;
+    color: white;
+}
+
+/* Active page */
+.sidebar nav a.active {
+    background-color: #6043a5;
+    color: white;
+}
+
+/* Logout */
+.logout-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 10px;
+    margin-top: 35px;
+    background-color: transparent;
+    color: #aeb5d2;
+    border: none;
+    border-top: 1px solid #292d50;
+    border-radius: 0;
+    font-size: 13px;
+}
+
+.logout-button:hover {
+    color: white;
+}
+
+
+/* static section */
+.statics {
+    margin-top: 25px;
+}
+
+.statics-cards {
+    display: flex;
+    gap: 12px;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 0;
+    height: 85px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 12px;
+    border: 1px solid;
+}
+
+.stat-card p {
+    font-size: 27px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.stat-card h3 {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 3px 0 0;
+    color: #ffffff;
+}
+
+/* Different card colors */
+.planet-card {
+    background: linear-gradient(120deg, #38235e, #211b42);
+    border-color: #8953c5;
+    color: #bd91ff;
+}
+
+.mission-card {
+    background: linear-gradient(120deg, #183765, #172448);
+    border-color: #397ac2;
+    color: #83c7ff;
+}
+
+.astronaut-card {
+    background: linear-gradient(120deg, #124b5b, #172b49);
+    border-color: #36a9bd;
+    color: #91e5f4;
+}
+
+.users-card {
+    background: linear-gradient(120deg, #39215e, #241a42);
+    border-color: #8953c5;
+    color: #bd91ff;
+}
+
+/* recent activity section  */
+.recent-activity {
+    padding: 15px 20px;
+    background-color: rgba(23, 30, 61, 0.9);
+    border: 1px solid #292d50;
+    border-radius: 12px;
+}
+
+.recent-activity h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    margin: 0 0 18px;
+}
+
+.recent-activity h2 svg {
+    color: #bd91ff;
+}
+
+/* Activity list */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Each activity */
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Activity icon */
+.activity-icon {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    border-radius: 50%;
+    background-color: #40316e;
+    color: #c59aff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Activity information */
+.activity-info {
+    flex: 1;
+}
+
+.activity-info h3 {
+    font-size: 12px;
+    margin: 0 0 4px;
+}
+
+.activity-info p {
+    font-size: 10px;
+    color: #aeb5d2;
+    margin: 0;
+}
+
+/* Activity time */
+.activity-time {
+    font-size: 10px;
+    color: #aeb5d2;
+    white-space: nowrap;
+}
+
+/* action section */
+.action {
+    flex: 1.2;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: rgba(23, 30, 61, 0.9);
+    border: 1px solid #292d50;
+    border-radius: 12px;
+}
+
+.action h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    margin: 0 0 20px;
+}
+
+.action h2 svg {
+    color: #bd91ff;
+}
+
+/* Three action cards */
+.action-cards {
+    display: flex;
+    gap: 12px;
+}
+
+.action-card {
+    position: relative;
+    flex: 1;
+    height: 115px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+    padding: 12px;
+    color: white;
+    border: 1px solid;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.action-card img {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    right: 0;
+    top: 5px;
+}
+
+
+/* Planet */
+.add-planet {
+    background: linear-gradient(135deg, #493078, #211b42);
+    border-color: #a15de0;
+}
+
+/* Mission */
+.add-mission {
+    background: linear-gradient(135deg, #244b80, #172448);
+    border-color: #438de0;
+}
+
+/* Astronaut */
+.add-astronaut {
+    background: linear-gradient(135deg, #176075, #123847);
+    border-color: #36b6c9;
+}
+
+
+
+/* popular planet section */
+.board-planets {
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #171e3d;
+    border: 1px solid #292d50;
+    border-radius: 12px;
+}
+
+.board-planets h2 {
+    display: inline-block;
+    width: calc(100% - 140px);
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.board-planets > a {
+    color: #a99aff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.board-planets > a:hover {
+    color: #B8A7FF;
+}
+
+.board-planets div {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(25% - 35px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 18px;
+    background-color: #171e3d;
+    border: 1px solid #292d50;
+    border-radius: 12px;
+}
+
+.board-planets h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.board-planets p {
+    color: #aeb5d2;
+    font-size: 14px;
+}
+
+.board-planets button {
+    padding: 9px 12px;
+    background-color: #5141a5;
+    color: white;
+    border: none;
+    border-radius: 7px;
+}
+
+.board-planets button:hover {
+    background-color: #6958c7;
+}
+.dashboard-sections {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* background design */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background-image: url('../pictues/space-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+   /* CREATE PLANET PAGE */
+
+/* Sidebar stays on the left */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 175px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Main page */
+.cp-page {
+    margin-left: 175px;
+    min-height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+    color: white;
+    background-image: url('../pictues/space-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Page title */
+.cp-title {
+    font-size: 28px;
+    margin: 10px 0 25px;
+    color: white;
+}
+
+/* Form container */
+.cp-form {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+    background: rgba(27, 28, 58, 0.92);
+    border: 1px solid #483078;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Image upload */
+
+.cp-upload-section label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.cp-image-input {
+    width: 100%;
+    min-height: 190px;
+    padding: 15px;
+    box-sizing: border-box;
+
+    border: 2px dashed #8750d0;
+    border-radius: 12px;
+
+    background: rgba(43, 40, 78, 0.7);
+    color: #d8d2ed;
+}
+
+/* Planet information */
+.cp-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cp-fields label,
+.cp-measurement-field label {
+    color: #f0edf9;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Input fields */
+.cp-input {
+    width: 100%;
+    height: 40px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+
+    border: 1px solid #65429d;
+    border-radius: 8px;
+
+    background: rgba(37, 38, 73, 0.95);
+    color: white;
+    font-size: 13px;
+    outline: none;
+}
+
+.cp-input::placeholder {
+    color: #aaa8c0;
+}
+
+.cp-input:focus {
+    border-color: #b17aff;
+    box-shadow: 0 0 0 2px rgba(156, 103, 235, 0.15);
+}
+
+/* Description */
+.cp-textarea {
+    width: 100%;
+    height: 85px;
+    padding: 11px;
+    box-sizing: border-box;
+
+    border: 1px solid #65429d;
+    border-radius: 8px;
+
+    background: rgba(37, 38, 73, 0.95);
+    color: white;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    resize: vertical;
+    outline: none;
+}
+
+.cp-textarea::placeholder {
+    color: #aaa8c0;
+}
+
+.cp-textarea:focus {
+    border-color: #b17aff;
+}
+
+/* Measurements */
+.cp-measurements {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(133, 117, 179, 0.25);
+}
+
+.cp-measurement-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+/* Buttons */
+.cp-buttons {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.cp-create {
+    height: 40px;
+    padding: 0 22px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+/* Create button */
+.cp-create {
+    color: white;
+    font-weight: bold;
+    border: 1px solid #a76af0;
+    background: linear-gradient(100deg, #7541c2, #a34de2);
+}
+
+.cp-create:hover {
+    background: linear-gradient(100deg, #8951d5, #b45ff0);
+}
+
+/* Dashboard sidebar */
+.dashboard-container .sidebar {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 255px;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+/* Dashboard content */
+.dashboard-container .dashboard-main {
+    flex: 1;
+    min-width: 0;
+    padding: 20px;
+    margin-left: 0;
+}
+
+/* sign-in page */
+
+
+
+
+
+
+
