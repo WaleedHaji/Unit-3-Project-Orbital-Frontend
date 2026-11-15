@@ -1,3 +1,4 @@
+
 import api from "./api";
 
 export async function getAllMissions() {
@@ -7,6 +8,11 @@ export async function getAllMissions() {
 
 export async function getMissionById(missionId) {
   const response = await api.get(`/missions/${missionId}`);
+  return response.data;
+}
+
+export async function createMission(formData) {
+  const response = await api.post("/missions", formData);
   return response.data;
 }
 

@@ -11,6 +11,11 @@ export async function getAstronautById(astronautId) {
   return response.data;
 }
 
+export async function createAstronaut(formData) {
+  const response = await api.post("/astronauts", formData);
+  return response.data;
+}
+
 export async function updateAstronaut(astronautId, astronautData) {
   const response = await api.put(`/astronauts/${astronautId}`, astronautData);
   return response.data;
