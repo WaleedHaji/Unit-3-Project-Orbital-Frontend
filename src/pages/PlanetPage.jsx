@@ -36,7 +36,9 @@ function PlanetPage() {
   }
 
   return (
+
     <div className="planetPageDiv">
+      
 
       {/* PAGE HEADING */}
       <div className="planetPageTitle">
