@@ -595,6 +595,23 @@ body {
     margin-left: 0;
 }
 
+.ep-upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.ep-image-preview {
+    width: 200px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 12px;
+    padding: 10px;
+    background: #121a35;
+    border: 1px solid rgba(145, 119, 255, 0.3);
+}
+
 /* sign-in page */
 
 
