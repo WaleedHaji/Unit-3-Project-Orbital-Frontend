@@ -13,13 +13,13 @@ import MissionDetails from "./pages/MissionDetails";
 import AstronautsPage from "./pages/AstronautsPage";
 import AstronautDetails from "./pages/AstronautDetails";
 
-
 import CreatePlanet from "./pages/CreateNewPlanet";
 import EditPlanet from "./pages/EditPlanet";
 import PlanetPage from "./pages/PlanetPage";
 import PlanetDetails from "./pages/PlanetDetails";
 import CreateMission from "./pages/CreateMission";
 import CreateAstronaut from "./pages/CreateAstronaut";
+
 function App() {
   function getUserFromToken() {
     const token = localStorage.getItem("token");
@@ -40,81 +40,116 @@ function App() {
     <div>
       {user && user.role !== "admin" && (
         <Navbar user={user} handleLogout={handleLogout} />
-      )}      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/sign-up" element={<SignupPage />} />
-        <Route path="/missions" element={<SpaceMissionsPage />} />
-
-    <Route
-     path="/missions/:missionId"
-    element={<MissionDetails user={user} />}
-     />
-    <Route
-    path="/missions/new"
-     element={user ? <CreateMission /> : <Navigate to="/sign-in" />}
-     />
-   <Route path="/astronauts" element={<AstronautsPage />} />
-
-    <Route
-     path="/astronauts/:astronautId"
-     element={<AstronautDetails user={user} />}
-    />
-    <Route
-     path="/astronauts/new"
-    element={user ? <CreateAstronaut /> : <Navigate to="/sign-in" />}
-    />
-        <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
-        {/* <Route
-      <Navbar user={user} handleLogout={handleLogout} />
+      )}
 
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/sign-up" element={<SignupPage />} />
-        <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
 
-        <Route path="/missions" element={<SpaceMissionsPage />} />
+        <Route path="/sign-up" element={<SignupPage />} />
+
         <Route
-        path="/missions/:missionId"
-        element={<MissionDetails user={user} />}
-       />
-        <Route path="/astronauts" element={<AstronautsPage />} />
-        
-        <Route
-        path="/astronauts/:astronautId"
-        element={<AstronautDetails user={user} />}
+          path="/sign-in"
+          element={<SignInPage setUser={setUser} />}
         />
+
         <Route
           path="/dashboard"
-          element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
-        /> */}
-        <Route
-          path="/dashboard"
-          element={user ? <Dashboard user={user} handleLogout={handleLogout} /> : <Navigate to="/sign-in" />}
+          element={
+            user ? (
+              <Dashboard user={user} handleLogout={handleLogout} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
         />
-        <Route path="/planets" element={user ? <PlanetPage /> : <Navigate to="/sign-in" />} />
-        <Route path="/planets/:planetId" element={user ? <PlanetDetails user={user} /> : <Navigate to="/sign-in" />} />
-        <Route path="/planets/new" element={<CreatePlanet />} />
-        <Route path="/planets/:id/edit" element={<EditPlanet />} />
-        <Route path="/admin" element={<Dashboard />} />
-        <Route path="/planets/new" element={user ? <CreatePlanet user={user} /> : <Navigate to="/sign-in" />} />
-        <Route path="/planets/:id/edit" element={user ? <EditPlanet user={user} /> : <Navigate to="/sign-in" />} />
 
         <Route
           path="/planets"
-          element={user ? <PlanetPage /> : <Navigate to="/sign-in" />}
+          element={
+            user ? (
+              <PlanetPage handleLogout={handleLogout} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
         />
+
         <Route
           path="/planets/:planetId"
-          element={user ? <PlanetDetails user={user} /> : <Navigate to="/sign-in" />}
+          element={
+            user ? (
+              <PlanetDetails user={user} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
         />
+
         <Route
           path="/planets/new"
-          element={user ? <CreatePlanet user={user} /> : <Navigate to="/sign-in" />}
+          element={
+            user ? (
+              <CreatePlanet user={user} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
         />
+
         <Route
           path="/planets/:id/edit"
-          element={user ? <EditPlanet user={user} /> : <Navigate to="/sign-in" />}
+          element={
+            user ? (
+              <EditPlanet user={user} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
         />
+
+        <Route
+          path="/missions"
+          element={<SpaceMissionsPage handleLogout={handleLogout} />}
+        />
+
+        <Route
+          path="/missions/:missionId"
+          element={<MissionDetails user={user} />}
+        />
+
+        <Route
+          path="/missions/new"
+          element={
+            user ? (
+              <CreateMission />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        />
+
+        <Route
+          path="/astronauts"
+          element={<AstronautsPage handleLogout={handleLogout} />}
+        />
+
+        <Route
+          path="/astronauts/:astronautId"
+          element={<AstronautDetails user={user} />}
+        />
+
+        <Route
+          path="/astronauts/new"
+          element={
+            user ? (
+              <CreateAstronaut />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        />
+
+        <Route path="/admin" element={<Dashboard />} />
       </Routes>
     </div>
   );

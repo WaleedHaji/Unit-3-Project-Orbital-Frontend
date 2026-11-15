@@ -878,3 +878,19 @@
     font-size: 0.8rem;
   }
 }
+.missions-admin-layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.missions-admin-layout > .sidebar {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.missions-admin-layout > .missions-page {
+  flex: 1;
+  min-width: 0;
+}
