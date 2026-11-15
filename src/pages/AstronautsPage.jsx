@@ -12,7 +12,7 @@ import {
 import "./AstronautsPage.css";
 import Starfield from "../components/Starfield";
 
-function AstronautsPage() {
+function AstronautsPage({ handleLogout }) {
   const [astronauts, setAstronauts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -93,7 +93,7 @@ function AstronautsPage() {
 
         <button
           className="logout-button"
-          onClick={() => navigate("/sign-in")}
+          onClick={handleLogout}
         >
           <LogOut size={20} />
           Logout

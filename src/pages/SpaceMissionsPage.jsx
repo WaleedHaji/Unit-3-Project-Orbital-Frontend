@@ -12,7 +12,7 @@ import {
 import "./SpaceMissionsPage.css";
 import Starfield from "../components/Starfield";
 
-function SpaceMissionsPage() {
+function SpaceMissionsPage({ handleLogout }) {
   const [missions, setMissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -127,7 +127,7 @@ function SpaceMissionsPage() {
 
         <button
           className="logout-button"
-          onClick={() => navigate("/sign-in")}
+          onClick={handleLogout}
         >
           <LogOut size={20} />
           Logout

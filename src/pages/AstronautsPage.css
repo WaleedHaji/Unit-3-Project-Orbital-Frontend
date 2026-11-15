@@ -397,3 +397,23 @@
   flex: 1;
   min-width: 0;
 }
+
+
+.astronauts-admin-layout > .sidebar {
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 259px;
+  height: 100vh;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+
+.astronauts-admin-layout > .astronauts-page {
+  margin-left: 259px;
+  width: calc(100% - 259px);
+  flex: none;
+  min-width: 0;
+}
