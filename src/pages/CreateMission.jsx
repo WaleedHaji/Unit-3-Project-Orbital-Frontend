@@ -13,7 +13,7 @@ import { createMission } from "../services/spaceMissionServices";
 
 import "../css/Dashboard.css";
 
-function CreateMission() {
+function CreateMission({ handleLogout }) {
   const [formData, setFormData] = useState({
     missionName: "",
     spaceAgency: "",
@@ -92,10 +92,13 @@ function CreateMission() {
           </Link>
         </nav>
 
-      <button className="logout-button">
-    <LogOut size={20} />
-    Logout
-</button>
+        <button
+          className="logout-button"
+          onClick={handleLogout}
+        >
+          <LogOut size={20} />
+          Logout
+        </button>
       </aside>
 
       <div className="cp-page">

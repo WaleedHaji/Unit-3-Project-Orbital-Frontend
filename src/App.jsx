@@ -121,7 +121,7 @@ function App() {
           path="/missions/new"
           element={
             user ? (
-              <CreateMission />
+              <CreateMission handleLogout={handleLogout} />
             ) : (
               <Navigate to="/sign-in" />
             )
@@ -138,16 +138,16 @@ function App() {
           element={<AstronautDetails user={user} />}
         />
 
-        <Route
-          path="/astronauts/new"
-          element={
-            user ? (
-              <CreateAstronaut />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
-        />
+      <Route
+      path="/astronauts/new"
+        element={
+         user ? (
+        <CreateAstronaut handleLogout={handleLogout} />
+       ) : (
+        <Navigate to="/sign-in" />
+         )
+      }
+   />
 
         <Route path="/admin" element={<Dashboard />} />
       </Routes>

@@ -13,7 +13,7 @@ import { createAstronaut } from "../services/astronautServices"
 
 import '../css/Dashboard.css'
 
-function CreateAstronaut() {
+function CreateAstronaut({ handleLogout }) {
 
     const [formData, setFormData] = useState({
         astronautName: '',
@@ -57,7 +57,6 @@ function CreateAstronaut() {
 
     return (
         <>
-            {/* Sidebar */}
             <aside className="sidebar">
 
                 <div className="sidebar-logo">
@@ -90,14 +89,16 @@ function CreateAstronaut() {
                     </Link>
                 </nav>
 
-             <button className="logout-button">
-             <LogOut size={20} />
-               Logout
-           </button>
+                <button
+                    className="logout-button"
+                    onClick={handleLogout}
+                >
+                    <LogOut size={20} />
+                    Logout
+                </button>
 
             </aside>
 
-            {/* Main Content */}
             <div className="cp-page">
 
                 <h1 className="cp-title">Create Astronaut</h1>
@@ -168,14 +169,12 @@ function CreateAstronaut() {
                     </div>
 
                     <div className="cp-buttons">
-
                         <button
                             type="submit"
                             className="cp-create"
                         >
                             + Create Astronaut
                         </button>
-
                     </div>
 
                 </form>
