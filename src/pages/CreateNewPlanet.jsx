@@ -23,10 +23,15 @@ function CreatePlanet() {
         diameter: "",
         distanceFromTheSun: "",
         numberOfMoons: "",
+        image:""
     })
 
     const navigate = useNavigate()
     const [image, setImage] = useState(null)
+
+    function handleImageChange(event) {
+    setImage(event.target.files[0])
+}
 
     function handleChange(event) {
         setFormData({
@@ -36,25 +41,33 @@ function CreatePlanet() {
     }
 
     async function handleSubmit(event) {
-        event.preventDefault()
+    event.preventDefault()
 
-        try {
-            const response = await axios.post(
-                `${import.meta.env.VITE_BACK_END_SERVER_URL}/planets`,
-                {
-                    ...formData,
-                    diameter: Number(formData.diameter),
-                    distanceFromTheSun: Number(formData.distanceFromTheSun),
-                    numberOfMoons: Number(formData.numberOfMoons)
-                }
-            )
+    try {
+        const data = new FormData()
 
-            navigate('/planets')
+        data.append('planetName', formData.planetName)
+        data.append('description', formData.description)
+        data.append('type', formData.type)
+        data.append('diameter', Number(formData.diameter))
+        data.append('distanceFromTheSun', Number(formData.distanceFromTheSun))
+        data.append('numberOfMoons', Number(formData.numberOfMoons))
 
-        } catch (error) {
-            console.log(error)
+        if (image) {
+            data.append('image', image)
         }
+
+        await axios.post(
+            `${import.meta.env.VITE_BACK_END_SERVER_URL}/planets`,
+            data
+        )
+
+        navigate('/planets')
+
+    } catch (error) {
+        console.log(error)
     }
+}
 
     return (
         <>
@@ -114,6 +127,7 @@ function CreatePlanet() {
                             name="image"
                             className="cp-image-input"
                             accept="image/*"
+                            onChange={handleImageChange}
                         />
                     </div>
 
