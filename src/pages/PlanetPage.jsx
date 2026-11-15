@@ -66,8 +66,8 @@ function PlanetPage() {
                         Planets
                     </Link>
 
-                    <Link to="/space-missions">
-                        <Rocket size={20} />
+                    <Link to="/missions">
+                   <Rocket size={20} />
                         Space Missions
                     </Link>
 
