@@ -1,0 +1,325 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+/* MAIN PAGE */
+.planetPageDiv {
+  min-height: 100vh;
+  padding: 40px 5% 50px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 75% 5%, rgba(75, 67, 160, 0.2), transparent 35%),
+    radial-gradient(circle at 5% 60%, rgba(105, 55, 160, 0.13), transparent 35%),
+    #050817;
+  font-family: "Nunito", sans-serif;
+}
+
+/* PAGE TITLE */
+.planetPageTitle {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.planetPageKicker {
+  color: #a98aff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.planetPageTitle h1 {
+  margin: 0 0 15px;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.planetPageTitle h1 span {
+  background: linear-gradient(90deg, #c16cff, #54c5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.planetPageSubtitle {
+  color: #c5c9e7;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* PLANET COLLECTION */
+.planetCollection {
+  max-width: 1450px;
+  margin: auto;
+}
+
+.planetCollectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.planetCollectionHeading h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.planetCount {
+  padding: 9px 15px;
+  color: #d3baff;
+  border: 1px solid rgba(169, 125, 255, 0.35);
+  background: rgba(125, 82, 210, 0.12);
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+/* PLANET GRID */
+.planetContainers {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 23px;
+  min-height: 390px;
+}
+
+/* INDIVIDUAL PLANET CARDS */
+.planetBoxesDiv {
+  min-width: 0;
+  min-height: 185px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 20px;
+  text-align: center;
+  border: 1px solid rgba(145, 119, 255, 0.25);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #121a35, #090e21);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.planetBoxesDiv:hover {
+  transform: translateY(-8px);
+  border-color: #a77aff;
+  box-shadow: 0 15px 35px rgba(139, 78, 255, 0.2);
+}
+
+/* PLANET DECORATIVE ICON */
+.planetCardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 15px;
+  color: #d3b7ff;
+  font-size: 1.8rem;
+  border: 1px solid rgba(169, 125, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(125, 82, 210, 0.15);
+  box-shadow: 0 0 20px rgba(155, 104, 255, 0.15);
+  transition: 0.3s ease;
+}
+
+.planetBoxesDiv:hover .planetCardIcon {
+  color: #fff;
+  box-shadow: 0 0 25px rgba(155, 104, 255, 0.4);
+  transform: rotate(45deg);
+}
+
+/* PLANET NAME */
+.planetBoxesDiv h2 {
+  margin: 0 0 15px;
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+/* CARD DIVIDER */
+.planetCardDivider {
+  width: 45px;
+  height: 2px;
+  margin-bottom: 18px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #c16cff, #54c5ff);
+}
+
+/* DETAILS LINK */
+.planetBoxesDiv a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 15px;
+  color: #d8caff;
+  text-decoration: none;
+  background: rgba(132, 91, 220, 0.1);
+  border: 1px solid rgba(169, 122, 255, 0.4);
+  border-radius: 9px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  transition: 0.3s ease;
+}
+
+.planetBoxesDiv a:hover {
+  color: #fff;
+  background: linear-gradient(100deg, #7046c7, #7855dc);
+  box-shadow: 0 0 18px rgba(169, 103, 255, 0.25);
+}
+
+.planetBoxesDiv a span {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.planetBoxesDiv a:hover span {
+  transform: translateX(5px);
+}
+
+/* PAGINATION */
+.planetPagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.paginationNumbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.paginationButton,
+.pageNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  color: #aeb5d5;
+  background: #10172d;
+  border: 1px solid rgba(151, 126, 255, 0.25);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.pageNumber {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.paginationButton:hover:not(:disabled),
+.pageNumber:hover {
+  color: white;
+  background: linear-gradient(100deg, #7148c7, #7856d8);
+  border-color: #a77aff;
+}
+
+.pageNumber.activePage {
+  color: white;
+  background: linear-gradient(100deg, #7148c7, #7856d8);
+  border-color: #a77aff;
+  box-shadow: 0 0 15px rgba(155, 104, 255, 0.3);
+}
+
+.paginationButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.paginationInfo {
+  margin-top: 18px;
+  color: #858eae;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .planetContainers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 0;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 550px) {
+  .planetPageDiv {
+    padding: 25px 4% 35px;
+  }
+
+  .planetPageTitle {
+    margin-bottom: 35px;
+  }
+
+  .planetPageTitle h1 {
+    font-size: 2.7rem;
+  }
+
+  .planetPageSubtitle {
+    font-size: 0.9rem;
+  }
+
+  .planetCollectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .planetCollectionHeading h2 {
+    font-size: 1.5rem;
+  }
+
+  .planetContainers {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .planetBoxesDiv {
+    min-height: 175px;
+  }
+
+  .planetPagination {
+    gap: 7px;
+  }
+
+  .paginationButton {
+    padding: 9px 11px;
+    font-size: 0.75rem;
+  }
+
+  .paginationNumbers {
+    gap: 5px;
+  }
+
+  .pageNumber {
+    width: 34px;
+    height: 36px;
+    font-size: 0.78rem;
+  }
+}

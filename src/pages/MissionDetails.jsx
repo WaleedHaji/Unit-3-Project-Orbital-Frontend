@@ -1,0 +1,359 @@
+
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router";
+import {
+  getMissionById,
+  updateMission,
+  deleteMission,
+} from "../services/spaceMissionServices";
+import "./MissionDetails.css";
+import Starfield from "../components/Starfield";
+
+function MissionDetails({ user }) {
+  const { missionId } = useParams();
+  const navigate = useNavigate();
+  const isAdmin = user?.role === "admin";
+
+  const [mission, setMission] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState({});
+  const [imageFile, setImageFile] = useState(null);
+  const [error, setError] = useState("");
+
+  const backendUrl = import.meta.env.VITE_BACK_END_SERVER_URL;
+
+  function getImageUrl(image) {
+    if (!image) return "";
+    if (image.startsWith("http")) return image;
+    return `${backendUrl}${image}`;
+  }
+
+  useEffect(() => {
+    async function fetchMission() {
+      try {
+        const data = await getMissionById(missionId);
+        setMission(data);
+        setFormData(data);
+      } catch (error) {
+        console.log(error);
+        setError("Unable to load this mission.");
+      }
+    }
+
+    fetchMission();
+  }, [missionId]);
+
+  function handleChange(event) {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  function handleImageChange(event) {
+    setImageFile(event.target.files[0] || null);
+  }
+
+  async function handleUpdate(event) {
+    event.preventDefault();
+
+    if (!isAdmin) return;
+
+    try {
+      const missionData = new FormData();
+
+      missionData.append("missionName", formData.missionName);
+      missionData.append("spaceAgency", formData.spaceAgency);
+      missionData.append("description", formData.description);
+      missionData.append("launchDate", formData.launchDate);
+      missionData.append("status", formData.status);
+      missionData.append("destination", formData.destination);
+
+      if (imageFile) {
+        missionData.append("image", imageFile);
+      }
+
+      await updateMission(missionId, missionData);
+
+      const refreshedMission = await getMissionById(missionId);
+      setMission(refreshedMission);
+      setFormData(refreshedMission);
+      setImageFile(null);
+      setIsEditing(false);
+    } catch (error) {
+      console.log(error);
+      alert("Unable to update mission.");
+    }
+  }
+
+  async function handleDelete() {
+    if (!isAdmin) return;
+
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this mission?"
+    );
+
+    if (!confirmed) return;
+
+    try {
+      await deleteMission(missionId);
+      navigate("/missions");
+    } catch (error) {
+      console.log(error);
+      alert("Unable to delete mission.");
+    }
+  }
+
+  if (error) {
+    return <div className="details-message">{error}</div>;
+  }
+
+  if (!mission) {
+    return (
+      <div className="details-message">
+        <div className="loading-orbit"></div>
+        <h2>Loading mission...</h2>
+      </div>
+    );
+  }
+
+  return (
+    <main className="mission-details-page">
+      <Starfield />
+
+      <button
+        className="back-button"
+        onClick={() => navigate("/missions")}
+      >
+        ← Back to Missions
+      </button>
+
+      {isEditing && isAdmin ? (
+        <section className="mission-edit-container">
+          <p className="details-label">MISSION MANAGEMENT</p>
+          <h1>Edit Mission</h1>
+
+          <form className="mission-edit-form" onSubmit={handleUpdate}>
+            <label>Mission Name</label>
+            <input
+              name="missionName"
+              value={formData.missionName || ""}
+              onChange={handleChange}
+              required
+            />
+
+            <label>Space Agency</label>
+            <input
+              name="spaceAgency"
+              value={formData.spaceAgency || ""}
+              onChange={handleChange}
+              required
+            />
+
+            <label>Description</label>
+            <textarea
+              name="description"
+              value={formData.description || ""}
+              onChange={handleChange}
+              required
+              rows="7"
+            />
+
+            <label>Launch Date</label>
+            <input
+              type="date"
+              name="launchDate"
+              value={formData.launchDate?.slice(0, 10) || ""}
+              onChange={handleChange}
+              required
+            />
+
+            <label>Status</label>
+            <select
+              name="status"
+              value={formData.status || ""}
+              onChange={handleChange}
+              required
+            >
+              <option value="Completed">Completed</option>
+              <option value="Ongoing">Ongoing</option>
+              <option value="Upcoming">Upcoming</option>
+            </select>
+
+            <label>Destination</label>
+            <input
+              name="destination"
+              value={formData.destination || ""}
+              onChange={handleChange}
+              required
+            />
+
+            <label>Upload Mission Image</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+
+            {imageFile && (
+              <p>Selected image: {imageFile.name}</p>
+            )}
+
+            {mission.image && (
+              <div className="details-hero-image">
+                <img
+                  src={getImageUrl(mission.image)}
+                  alt={mission.missionName}
+                />
+              </div>
+            )}
+
+            <div className="edit-actions">
+              <button type="submit" className="save-button">
+                Save Changes
+              </button>
+
+              <button
+                type="button"
+                className="cancel-button"
+                onClick={() => {
+                  setFormData(mission);
+                  setImageFile(null);
+                  setIsEditing(false);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </section>
+      ) : (
+        <>
+          <section className="details-hero">
+            <div className="details-hero-image">
+              {mission.image && (
+                <img
+                  src={getImageUrl(mission.image)}
+                  alt={mission.missionName}
+                />
+              )}
+            </div>
+
+            <div className="details-hero-content">
+              <p className="details-label">EXPLORE THE MISSION</p>
+
+              <span
+                className={`mission-status ${
+                  mission.status?.toLowerCase() === "ongoing"
+                    ? "status-ongoing"
+                    : mission.status?.toLowerCase() === "upcoming"
+                    ? "status-upcoming"
+                    : "status-completed"
+                }`}
+              >
+                <span className="status-dot"></span>
+                {mission.status}
+              </span>
+
+              <h1>{mission.missionName}</h1>
+
+              <p className="details-agency">
+                {mission.spaceAgency}
+              </p>
+
+              <p className="details-destination">
+                Destination: {mission.destination}
+              </p>
+            </div>
+          </section>
+
+          <section className="mission-info-grid">
+            <div className="mission-info-card">
+              <span className="info-icon">▦</span>
+              <div>
+                <p>Launch Date</p>
+                <h3>
+                  {new Date(mission.launchDate).toLocaleDateString(
+                    "en-US",
+                    {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    }
+                  )}
+                </h3>
+              </div>
+            </div>
+
+            <div className="mission-info-card">
+              <span className="info-icon">◈</span>
+              <div>
+                <p>Space Agency</p>
+                <h3>{mission.spaceAgency}</h3>
+              </div>
+            </div>
+
+            <div className="mission-info-card">
+              <span className="info-icon">◎</span>
+              <div>
+                <p>Destination</p>
+                <h3>{mission.destination}</h3>
+              </div>
+            </div>
+          </section>
+
+          <section className="mission-description-section">
+            <p className="details-label">THE STORY</p>
+            <h2>About This Mission</h2>
+            <p className="full-description">
+              {mission.description}
+            </p>
+          </section>
+
+          <section className="mission-crew-section">
+            <p className="details-label">THE PEOPLE BEHIND THE MISSION</p>
+            <h2>Mission Crew</h2>
+
+            {mission.astronauts?.length > 0 ? (
+              <div className="crew-list">
+                {mission.astronauts.map((astronaut) => (
+                  <div className="crew-member" key={astronaut._id}>
+                    <span className="crew-icon">✦</span>
+                    <div>
+                      <h3>{astronaut.astronautName}</h3>
+                      <p>{astronaut.spaceAgency}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="uncrewed-message">
+                This was an uncrewed mission. No astronauts were aboard.
+              </p>
+            )}
+          </section>
+
+          {isAdmin && (
+            <section className="mission-management">
+              <button
+                className="edit-mission-button"
+                onClick={() => setIsEditing(true)}
+              >
+                Edit Mission
+              </button>
+
+              <button
+                className="delete-mission-button"
+                onClick={handleDelete}
+              >
+                Delete Mission
+              </button>
+            </section>
+          )}
+        </>
+      )}
+    </main>
+  );
+}
+
+export default MissionDetails;

@@ -3,7 +3,7 @@ import SolarSystem from "../components/Solar-System-React-Three-Fiber/src/solarS
 
 function Homepage() {
   return (
-    <div>
+    <div className='homepage'>
       <h1 className='webTitle-homepage'>Orbital</h1>
               
       <div className="solar-system-container">
