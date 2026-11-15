@@ -13,7 +13,7 @@ import { createMission } from "../services/spaceMissionServices";
 
 import "../css/Dashboard.css";
 
-function CreateMission() {
+function CreateMission({ handleLogout }) {
   const [formData, setFormData] = useState({
     missionName: "",
     spaceAgency: "",
@@ -94,10 +94,10 @@ function CreateMission() {
 
         <button
           className="logout-button"
-          onClick={() => navigate("/dashboard")}
+          onClick={handleLogout}
         >
           <LogOut size={20} />
-          Back to Dashboard
+          Logout
         </button>
       </aside>
 

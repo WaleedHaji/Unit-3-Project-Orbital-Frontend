@@ -102,20 +102,22 @@ function Dashboard({ user, handleLogout }) {
                     </div>
 
                     <nav>
-                        <Link to="/dashboard" className="active">
-                            <House size={20} />Dashboard
-                        </Link>
+                   <Link to="/dashboard" className="active">
+                   <House size={20} /> Back to Dashboard
+                    </Link>
 
-                        <Link to="/planets">
-                            <Orbit size={20} />Planets</Link>
+                   <Link to="/planets">
+                   <Orbit size={20} /> Planets
+                   </Link>
 
-                        <Link to="/missions">
-                       <Rocket size={20} />Space Missions
-                          </Link>
+                   <Link to="/missions">
+                   <Rocket size={20} /> Space Missions
+                    </Link>
 
-                        <Link to="/astronauts">
-                            <UserRound size={20} /> Astronauts</Link>
-                    </nav>
+                   <Link to="/astronauts">
+                   <UserRound size={20} /> Astronauts
+                  </Link>
+                 </nav>
 
                     <button className="logout-button" onClick={handleLogout}>
                         <LogOut size={20} />

@@ -55,27 +55,27 @@ function PlanetPage() {
                     </div>
                 </div>
 
-                <nav>
-                    <Link to="/dashboard">
-                        <House size={20} />
-                        Dashboard
-                    </Link>
+              <nav>
+             <Link to="/dashboard">
+             <House size={20} />
+            Back to Dashboard
+          </Link>
 
-                    <Link to="/planets" className="active">
-                        <Orbit size={20} />
-                        Planets
-                    </Link>
+         <Link to="/planets" className="active">
+        <Orbit size={20} />
+        Planets
+        </Link>
 
-                    <Link to="/missions">
-                   <Rocket size={20} />
-                        Space Missions
-                    </Link>
+           <Link to="/missions">
+        <Rocket size={20} />
+        Space Missions
+        </Link>
 
-                    <Link to="/astronauts">
-                        <UserRound size={20} />
-                        Astronauts
-                    </Link>
-                </nav>
+       <Link to="/astronauts">
+        <UserRound size={20} />
+        Astronauts
+       </Link>
+       </nav>
 
                 <button className="logout-button">
                     <LogOut size={20} />

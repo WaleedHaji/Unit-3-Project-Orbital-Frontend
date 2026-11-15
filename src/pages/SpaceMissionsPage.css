@@ -878,3 +878,39 @@
     font-size: 0.8rem;
   }
 }
+.missions-admin-layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.missions-admin-layout > .sidebar {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.missions-admin-layout > .missions-page {
+  flex: 1;
+  min-width: 0;
+}
+
+
+.missions-admin-layout > .sidebar {
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 259px;
+  height: 100vh;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.missions-admin-layout > .missions-page {
+  margin-left: 259px;
+  width: calc(100% - 259px);
+  flex: none;
+  min-width: 0;
+}
+
