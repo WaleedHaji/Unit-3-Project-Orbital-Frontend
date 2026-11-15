@@ -67,8 +67,20 @@ function PlanetPage() {
               key={onePlanet._id}
             >
 
-              <div className="planetCardIcon">
-                ✦
+              <div className="planetImageContainer">
+
+                {onePlanet.image ? (
+                  <img
+                      src={`${import.meta.env.VITE_BACK_END_SERVER_URL}/uploads/${onePlanet.image}`}
+                      alt={onePlanet.planetName}
+                      className="planetCardImage"
+                  />
+                ) : (
+                    <div className="planetCardIcon">
+                    ✦
+                    </div>
+                )}
+
               </div>
 
               <h2>{onePlanet.planetName}</h2>
