@@ -18,8 +18,8 @@ import CreatePlanet from "./pages/CreateNewPlanet";
 import EditPlanet from "./pages/EditPlanet";
 import PlanetPage from "./pages/PlanetPage";
 import PlanetDetails from "./pages/PlanetDetails";
-
-
+import CreateMission from "./pages/CreateMission";
+import CreateAstronaut from "./pages/CreateAstronaut";
 function App() {
   function getUserFromToken() {
     const token = localStorage.getItem("token");
@@ -43,6 +43,26 @@ function App() {
       )}      <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/sign-up" element={<SignupPage />} />
+        <Route path="/missions" element={<SpaceMissionsPage />} />
+
+    <Route
+     path="/missions/:missionId"
+    element={<MissionDetails user={user} />}
+     />
+    <Route
+    path="/missions/new"
+     element={user ? <CreateMission /> : <Navigate to="/sign-in" />}
+     />
+   <Route path="/astronauts" element={<AstronautsPage />} />
+
+    <Route
+     path="/astronauts/:astronautId"
+     element={<AstronautDetails user={user} />}
+    />
+    <Route
+     path="/astronauts/new"
+    element={user ? <CreateAstronaut /> : <Navigate to="/sign-in" />}
+    />
         <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
         {/* <Route
       <Navbar user={user} handleLogout={handleLogout} />

@@ -109,8 +109,9 @@ function Dashboard({ user, handleLogout }) {
                         <Link to="/planets">
                             <Orbit size={20} />Planets</Link>
 
-                        <Link to="/space-missions">
-                            <Rocket size={20} />Space Missions </Link>
+                        <Link to="/missions">
+                       <Rocket size={20} />Space Missions
+                          </Link>
 
                         <Link to="/astronauts">
                             <UserRound size={20} /> Astronauts</Link>
@@ -247,7 +248,7 @@ function Dashboard({ user, handleLogout }) {
 
                                 <button
                                     className="action-card add-mission"
-                                    onClick={() => navigate('/space-missions/new')}
+                                    onClick={() => navigate('/missions/new')}
                                 >
                                     <Plus size={22} />
                                     <img src={mission} alt="Rocket" />
