@@ -1,4 +1,11 @@
 
+import {
+    House,
+    Orbit,
+    Rocket,
+    UserRound,
+    LogOut
+} from 'lucide-react'
 import { useState, useEffect } from "react"
 import { Link } from "react-router"
 import { getAllPlanets } from "../services/planetServices"
@@ -36,7 +43,47 @@ function PlanetPage() {
   }
 
   return (
+
     <div className="planetPageDiv">
+      <aside className="sidebar">
+
+                <div className="sidebar-logo">
+                    <Orbit size={38} />
+                    <div>
+                        <h2>Orbital</h2>
+                        <p>Admin Panel</p>
+                    </div>
+                </div>
+
+                <nav>
+                    <Link to="/dashboard">
+                        <House size={20} />
+                        Dashboard
+                    </Link>
+
+                    <Link to="/planets" className="active">
+                        <Orbit size={20} />
+                        Planets
+                    </Link>
+
+                    <Link to="/space-missions">
+                        <Rocket size={20} />
+                        Space Missions
+                    </Link>
+
+                    <Link to="/astronauts">
+                        <UserRound size={20} />
+                        Astronauts
+                    </Link>
+                </nav>
+
+                <button className="logout-button">
+                    <LogOut size={20} />
+                    Logout
+                </button>
+
+            </aside>
+      
 
       {/* PAGE HEADING */}
       <div className="planetPageTitle">
@@ -65,8 +112,20 @@ function PlanetPage() {
               key={onePlanet._id}
             >
 
-              <div className="planetCardIcon">
-                ✦
+              <div className="planetImageContainer">
+
+                {onePlanet.image ? (
+                  <img
+                      src={`${import.meta.env.VITE_BACK_END_SERVER_URL}/uploads/${onePlanet.image}`}
+                      alt={onePlanet.planetName}
+                      className="planetCardImage"
+                  />
+                ) : (
+                    <div className="planetCardIcon">
+                    ✦
+                    </div>
+                )}
+
               </div>
 
               <h2>{onePlanet.planetName}</h2>
