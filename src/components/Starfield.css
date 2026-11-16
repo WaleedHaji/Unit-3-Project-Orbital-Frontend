@@ -46,18 +46,20 @@
 
 .shooting-star {
   position: absolute;
-  width: 100px;
-  height: 2px;
+  width: 150px;
+  height: 3px;
+  border-radius: 50%;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0),
-    rgba(210, 225, 255, 0.9),
+    transparent,
+    rgba(180, 200, 255, 0.5),
     #ffffff
   );
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(200, 220, 255, 0.9);
+  box-shadow:
+    0 0 8px #ffffff,
+    0 0 18px rgba(150, 170, 255, 0.9);
   transform: rotate(-35deg);
-  animation: shootingStar 1.6s ease-out forwards;
+  animation: shootingStar 1.8s ease-out forwards;
   pointer-events: none;
 }
 
@@ -73,6 +75,6 @@
 
   100% {
     opacity: 0;
-    transform: translate3d(-250px, 180px, 0) rotate(-35deg);
+    transform: translate3d(-300px, 210px, 0) rotate(-35deg);
   }
 }
