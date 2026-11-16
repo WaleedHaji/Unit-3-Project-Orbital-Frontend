@@ -19,6 +19,7 @@ import PlanetPage from "./pages/PlanetPage";
 import PlanetDetails from "./pages/PlanetDetails";
 import CreateMission from "./pages/CreateMission";
 import CreateAstronaut from "./pages/CreateAstronaut";
+import UserPlanetPage from "./pages/userallplanet"
 
 function App() {
   function getUserFromToken() {
@@ -64,26 +65,26 @@ function App() {
 />
 
         <Route
-          path="/planets"
-          element={
-            user ? (
-              <PlanetPage handleLogout={handleLogout} />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
-        />
+  path="/planets"
+  element={
+    user ? (
+      <PlanetPage />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
 
         <Route
-          path="/planets/:planetId"
-          element={
-            user ? (
-              <PlanetDetails user={user} />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
-        />
+  path="/planets/:planetId"
+  element={
+    user ? (
+      <PlanetDetails user={user} />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
 
         <Route
           path="/planets/new"
@@ -106,6 +107,16 @@ function App() {
             )
           }
         />
+        <Route
+  path="/explore/planets"
+  element={
+    user ? (
+      <UserPlanetPage />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
 
         <Route
           path="/missions"
@@ -149,7 +160,6 @@ function App() {
       }
    />
 
-        <Route path="/admin" element={<Dashboard />} />
       </Routes>
     </div>
   );

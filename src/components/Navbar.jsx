@@ -1,6 +1,6 @@
 
-import { Link } from 'react-router'
-
+import { Link } from "react-router"
+import '../App.css'
 function Navbar({ user, handleLogout }) {
   return (
     <nav className="navbar">
@@ -11,7 +11,7 @@ function Navbar({ user, handleLogout }) {
 
       <div className="navbar-links">
         <Link to="/">Home</Link>
-        <Link to="/planets">Planets</Link>
+<Link to="/explore/planets">Planets</Link>
         <Link to="/missions">Space Missions</Link>
         <Link to="/astronauts">Astronauts</Link>
       </div>
@@ -26,7 +26,6 @@ function Navbar({ user, handleLogout }) {
             <Link to="/sign-in" className="navbar-signin">
               Sign In
             </Link>
-
             <Link to="/sign-up" className="navbar-signup">
               Sign Up
             </Link>
