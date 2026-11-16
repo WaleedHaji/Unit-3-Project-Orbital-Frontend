@@ -1,0 +1,283 @@
+
+/* ================================
+   USER PLANET PAGE
+================================ */
+
+.userPlanetPage {
+  min-height: 100vh;
+  width: 100%;
+  padding: 120px 7% 60px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(91, 65, 180, 0.16), transparent 35%),
+    radial-gradient(circle at 85% 70%, rgba(35, 100, 180, 0.12), transparent 35%),
+    #080b18;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* ================================
+   PAGE TITLE
+================================ */
+
+.userPlanetPage .planetPageTitle {
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+.userPlanetPage .planetPageTitle h1 {
+  font-size: 55px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.userPlanetPage .planetPageTitle h1 span {
+  color: #a78bfa;
+}
+
+.userPlanetPage .planetPageKicker {
+  color: #9ca3af;
+  font-size: 12px;
+  letter-spacing: 5px;
+  margin-top: 15px;
+}
+
+/* ================================
+   PLANET COLLECTION
+================================ */
+
+.userPlanetPage .planetCollection {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.userPlanetPage .planetCollectionHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.userPlanetPage .planetCollectionHeading h2 {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.userPlanetPage .planetCount {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.13);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ================================
+   PLANET GRID
+================================ */
+
+.userPlanetPage .planetContainers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.userPlanetPage .planetBoxesDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  background: linear-gradient(
+    145deg,
+    rgba(27, 32, 58, 0.95),
+    rgba(13, 17, 36, 0.95)
+  );
+  border: 1px solid rgba(167, 139, 250, 0.16);
+  border-radius: 18px;
+  padding: 25px 20px 22px;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+.userPlanetPage .planetBoxesDiv:hover {
+  transform: translateY(-8px);
+  border-color: rgba(167, 139, 250, 0.65);
+  box-shadow: 0 12px 35px rgba(94, 62, 180, 0.2);
+}
+
+/* ================================
+   PLANET IMAGE
+================================ */
+
+.userPlanetPage .planetImageContainer {
+  width: 100%;
+  height: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.userPlanetPage .planetCardImage {
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.userPlanetPage .planetBoxesDiv:hover .planetCardImage {
+  transform: scale(1.08);
+}
+
+.userPlanetPage .planetCardIcon {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, #55458e, #17152d);
+  color: #ffffff;
+  font-size: 55px;
+}
+
+/* ================================
+   PLANET NAME
+================================ */
+
+.userPlanetPage .planetBoxesDiv h2 {
+  font-size: 21px;
+  font-weight: 600;
+  margin: 5px 0 15px;
+  text-align: center;
+}
+
+.userPlanetPage .planetCardDivider {
+  width: 45px;
+  height: 3px;
+  border-radius: 5px;
+  background: #a78bfa;
+  transition: width 0.3s ease;
+}
+
+.userPlanetPage .planetBoxesDiv:hover .planetCardDivider {
+  width: 85px;
+}
+
+/* ================================
+   PAGINATION
+================================ */
+
+.userPlanetPage .planetPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 50px;
+}
+
+.userPlanetPage .paginationNumbers {
+  display: flex;
+  gap: 8px;
+}
+
+.userPlanetPage .paginationButton,
+.userPlanetPage .pageNumber {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s ease;
+}
+
+.userPlanetPage .paginationButton:hover,
+.userPlanetPage .pageNumber:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: #a78bfa;
+}
+
+.userPlanetPage .paginationButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.userPlanetPage .pageNumber.activePage {
+  background: #8b5cf6;
+  border-color: #8b5cf6;
+  color: #ffffff;
+}
+
+/* ================================
+   PAGINATION INFORMATION
+================================ */
+
+.userPlanetPage .paginationInfo {
+  text-align: center;
+  color: #858ba3;
+  font-size: 13px;
+  margin-top: 18px;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 900px) {
+  .userPlanetPage .planetContainers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .userPlanetPage .planetPageTitle h1 {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  .userPlanetPage {
+    padding: 110px 5% 40px;
+  }
+
+  .userPlanetPage .planetPageTitle {
+    margin-bottom: 40px;
+  }
+
+  .userPlanetPage .planetPageTitle h1 {
+    font-size: 36px;
+  }
+
+  .userPlanetPage .planetCollectionHeading h2 {
+    font-size: 19px;
+  }
+
+  .userPlanetPage .planetContainers {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .userPlanetPage .planetImageContainer {
+    height: 190px;
+  }
+
+  .userPlanetPage .planetCardImage {
+    width: 170px;
+    height: 170px;
+  }
+
+  .userPlanetPage .planetPagination {
+    flex-wrap: wrap;
+  }
+
+  .userPlanetPage .paginationButton,
+  .userPlanetPage .pageNumber {
+    padding: 9px 11px;
+  }
+}
