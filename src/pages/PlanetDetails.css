@@ -93,7 +93,7 @@
 .planet-content {
   flex: 1;
   min-width: 0;
-  padding: 40px 5%;
+  padding: 110px 5% 40px;
   text-align: center;
 }
 

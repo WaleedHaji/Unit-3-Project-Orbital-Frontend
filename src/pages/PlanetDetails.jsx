@@ -80,6 +80,7 @@ function PlanetDetails({ user }) {
 
   const navigate = useNavigate()
   const { planetId } = useParams()
+  const isAdmin = user?.role === "admin"
 
   async function loadPlanet() {
     const response = await getPlanetById(planetId)
@@ -125,12 +126,14 @@ function PlanetDetails({ user }) {
             </li>
           ))}
         </ul>
-        <button
-  className="back-dashboard"
-  onClick={() => navigate("/dashboard")}
->
-  ← Back to Dashboard
-</button>
+        {isAdmin && (
+  <button
+    className="back-dashboard"
+    onClick={() => navigate("/dashboard")}
+  >
+    ← Back to Dashboard
+  </button>
+)}
       </aside>
 
       {/* MAIN CONTENT */}

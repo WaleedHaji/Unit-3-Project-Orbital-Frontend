@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router"
 import { getAllPlanets } from "../services/planetServices"
 import "./UserPlanetPage.css"
+// import "./PlanetPage.css"
 
 function UserPlanetPage() {
   const [planets, setPlanets] = useState([])
@@ -36,12 +37,15 @@ function UserPlanetPage() {
   }
 
   return (
-    <div className="userPlanetPage">
+
+<div className="userPlanetPage">      
+      
 
       {/* PAGE HEADING */}
       <div className="planetPageTitle">
         <h1>All <span>Planets</span></h1>
-        <p className="planetPageKicker">EXPLORE THE UNIVERSE</p>
+        
+        <p className="planetPageKicker">EXPLORE THE UNIVERSE</p>  
       </div>
 
       {/* PLANET COLLECTION */}
@@ -59,7 +63,7 @@ function UserPlanetPage() {
 
           {currentPlanets.map((onePlanet) => (
             <Link
-              to={`/explore/planets/${onePlanet._id}`}
+              to={`/planets/${onePlanet._id}`}
               className="planetBoxesDiv"
               key={onePlanet._id}
             >
@@ -68,14 +72,14 @@ function UserPlanetPage() {
 
                 {onePlanet.image ? (
                   <img
-                    src={`${import.meta.env.VITE_BACK_END_SERVER_URL}/uploads/${onePlanet.image}`}
-                    alt={onePlanet.planetName}
-                    className="planetCardImage"
+                      src={`${import.meta.env.VITE_BACK_END_SERVER_URL}/uploads/${onePlanet.image}`}
+                      alt={onePlanet.planetName}
+                      className="planetCardImage"
                   />
                 ) : (
-                  <div className="planetCardIcon">
+                    <div className="planetCardIcon">
                     ✦
-                  </div>
+                    </div>
                 )}
 
               </div>
@@ -141,6 +145,7 @@ function UserPlanetPage() {
         </p>
 
       </div>
+
     </div>
   )
 }
