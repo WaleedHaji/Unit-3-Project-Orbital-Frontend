@@ -38,9 +38,9 @@ function App() {
 
   return (
     <div>
-      {user && user.role !== "admin" && (
-        <Navbar user={user} handleLogout={handleLogout} />
-      )}
+      {(!user || user.role !== "admin") && (
+  <Navbar user={user} handleLogout={handleLogout} />
+)}
 
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -53,15 +53,15 @@ function App() {
         />
 
         <Route
-          path="/dashboard"
-          element={
-            user ? (
-              <Dashboard user={user} handleLogout={handleLogout} />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
-        />
+  path="/dashboard"
+  element={
+    user?.role === "admin" ? (
+      <Dashboard user={user} handleLogout={handleLogout} />
+    ) : (
+      <Navigate to="/" />
+    )
+  }
+/>
 
         <Route
           path="/planets"
