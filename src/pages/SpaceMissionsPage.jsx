@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import "./SpaceMissionsPage.css";
 import Starfield from "../components/Starfield";
+import '../css/Dashboard.css'
+
 
 function SpaceMissionsPage({ handleLogout }) {
   const [missions, setMissions] = useState([]);
@@ -106,7 +108,7 @@ function SpaceMissionsPage({ handleLogout }) {
         <nav>
           <Link to="/dashboard">
             <House size={20} />
-            Back to Dashboard
+           Dashboard
           </Link>
 
           <Link to="/planets">
@@ -138,48 +140,7 @@ function SpaceMissionsPage({ handleLogout }) {
       <main className="missions-page">
         <Starfield />
 
-        <section className="missions-hero">
-          <div className="hero-content">
-            <div className="hero-eyebrow">
-              <span className="hero-eyebrow-line"></span>
-              THE UNIVERSE IS WAITING
-            </div>
-
-            <h1>
-              Beyond <span>Earth.</span>
-              <br />
-              Beyond <span>Limits.</span>
-            </h1>
-
-            <p>
-              Discover humanity's greatest journeys into space.
-              Explore the missions, people, and discoveries
-              shaping our understanding of the universe.
-            </p>
-
-            <button
-              className="hero-explore-button"
-              onClick={() =>
-                document
-                  .getElementById("mission-collection")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-            >
-              Explore Missions <span>↓</span>
-            </button>
-          </div>
-
-          <div className="hero-orbit-art">
-            <div className="orbit orbit-one"></div>
-            <div className="orbit orbit-two"></div>
-            <div className="orbit orbit-three"></div>
-            <div className="orbit-planet"></div>
-            <div className="orbit-moon"></div>
-            <span className="orbit-star star-one">✦</span>
-            <span className="orbit-star star-two">✧</span>
-            <span className="orbit-star star-three">✦</span>
-          </div>
-        </section>
+       
 
         <section className="mission-stats">
           <div className="stat-item">

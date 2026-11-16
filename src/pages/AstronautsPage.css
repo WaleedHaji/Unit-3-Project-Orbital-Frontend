@@ -387,11 +387,7 @@
   position: relative;
 }
 
-.astronauts-admin-layout > .sidebar {
-  flex-shrink: 0;
-  position: relative;
-  z-index: 10;
-}
+
 
 .astronauts-admin-layout > .astronauts-page {
   flex: 1;
@@ -405,17 +401,6 @@
   position: relative;
 }
 
-.astronauts-admin-layout > .sidebar {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  width: 259px;
-  height: calc(100vh - 70px);
-  flex-shrink: 0;
-  z-index: 10;
-  overflow-y: auto;
-  opacity: 1;
-}
 
 .astronauts-admin-layout > .astronauts-page {
   margin-left: 259px;
