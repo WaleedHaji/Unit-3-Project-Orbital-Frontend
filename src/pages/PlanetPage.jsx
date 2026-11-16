@@ -58,7 +58,7 @@ function PlanetPage() {
               <nav>
              <Link to="/dashboard">
              <House size={20} />
-            Back to Dashboard
+             Dashboard
           </Link>
 
          <Link to="/planets" className="active">
