@@ -19,7 +19,7 @@ import PlanetPage from "./pages/PlanetPage";
 import PlanetDetails from "./pages/PlanetDetails";
 import CreateMission from "./pages/CreateMission";
 import CreateAstronaut from "./pages/CreateAstronaut";
-import UserPlanetPage from "./pages/userallplanet"
+import UserPlanetPage from "./pages/userallplanet";
 
 function App() {
   function getUserFromToken() {
@@ -40,8 +40,8 @@ function App() {
   return (
     <div>
       {(!user || user.role !== "admin") && (
-  <Navbar user={user} handleLogout={handleLogout} />
-)}
+        <Navbar user={user} handleLogout={handleLogout} />
+      )}
 
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -54,37 +54,33 @@ function App() {
         />
 
         <Route
-  path="/dashboard"
-  element={
-    user?.role === "admin" ? (
-      <Dashboard user={user} handleLogout={handleLogout} />
-    ) : (
-      <Navigate to="/" />
-    )
-  }
-/>
+          path="/dashboard"
+          element={
+            user?.role === "admin" ? (
+              <Dashboard user={user} handleLogout={handleLogout} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
 
         <Route
-  path="/planets"
-  element={
-    user ? (
-      <PlanetPage />
-    ) : (
-      <Navigate to="/sign-in" />
-    )
-  }
-/>
+          path="/planets"
+          element={
+            user ? <PlanetPage /> : <Navigate to="/sign-in" />
+          }
+        />
 
         <Route
-  path="/planets/:planetId"
-  element={
-    user ? (
-      <PlanetDetails user={user} />
-    ) : (
-      <Navigate to="/sign-in" />
-    )
-  }
-/>
+          path="/planets/:planetId"
+          element={
+            user ? (
+              <PlanetDetails user={user} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        />
 
         <Route
           path="/planets/new"
@@ -107,31 +103,37 @@ function App() {
             )
           }
         />
+
         <Route
-  path="/explore/planets"
-  element={
-    user ? (
-      <UserPlanetPage />
-    ) : (
-      <Navigate to="/sign-in" />
-    )
-  }
-/>
+          path="/explore/planets"
+          element={
+            user ? <UserPlanetPage /> : <Navigate to="/sign-in" />
+          }
+        />
 
-
-    <Route
-  path="/missions"
-  element={
-    <SpaceMissionsPage
-      user={user}
-      handleLogout={handleLogout}
-    />
-  }
-  />
+        <Route
+          path="/missions"
+          element={
+            user ? (
+              <SpaceMissionsPage
+                user={user}
+                handleLogout={handleLogout}
+              />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        />
 
         <Route
           path="/missions/:missionId"
-          element={<MissionDetails user={user} />}
+          element={
+            user ? (
+              <MissionDetails user={user} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
         />
 
         <Route
@@ -145,29 +147,41 @@ function App() {
           }
         />
 
-         <Route
+        <Route
           path="/astronauts"
-        element={
-       <AstronautsPage user={user} handleLogout={handleLogout} />
-        }
-      />
+          element={
+            user ? (
+              <AstronautsPage
+                user={user}
+                handleLogout={handleLogout}
+              />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        />
 
         <Route
           path="/astronauts/:astronautId"
-          element={<AstronautDetails user={user} />}
+          element={
+            user ? (
+              <AstronautDetails user={user} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
         />
 
-      <Route
-      path="/astronauts/new"
-        element={
-         user ? (
-        <CreateAstronaut handleLogout={handleLogout} />
-       ) : (
-        <Navigate to="/sign-in" />
-         )
-      }
-   />
-
+        <Route
+          path="/astronauts/new"
+          element={
+            user ? (
+              <CreateAstronaut handleLogout={handleLogout} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        />
       </Routes>
     </div>
   );
