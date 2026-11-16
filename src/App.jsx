@@ -119,10 +119,15 @@ function App() {
 />
 
 
-        <Route
-          path="/missions"
-          element={<SpaceMissionsPage handleLogout={handleLogout} />}
-        />
+    <Route
+  path="/missions"
+  element={
+    <SpaceMissionsPage
+      user={user}
+      handleLogout={handleLogout}
+    />
+  }
+  />
 
         <Route
           path="/missions/:missionId"
@@ -140,10 +145,12 @@ function App() {
           }
         />
 
-        <Route
+         <Route
           path="/astronauts"
-          element={<AstronautsPage handleLogout={handleLogout} />}
-        />
+        element={
+       <AstronautsPage user={user} handleLogout={handleLogout} />
+        }
+      />
 
         <Route
           path="/astronauts/:astronautId"
