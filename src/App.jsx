@@ -19,6 +19,7 @@ import PlanetPage from "./pages/PlanetPage";
 import PlanetDetails from "./pages/PlanetDetails";
 import CreateMission from "./pages/CreateMission";
 import CreateAstronaut from "./pages/CreateAstronaut";
+import UserPlanetPage from "./pages/userallplanet"
 
 function App() {
   function getUserFromToken() {
@@ -38,9 +39,9 @@ function App() {
 
   return (
     <div>
-      {user && user.role !== "admin" && (
-        <Navbar user={user} handleLogout={handleLogout} />
-      )}
+      {(!user || user.role !== "admin") && (
+  <Navbar user={user} handleLogout={handleLogout} />
+)}
 
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -53,37 +54,37 @@ function App() {
         />
 
         <Route
-          path="/dashboard"
-          element={
-            user ? (
-              <Dashboard user={user} handleLogout={handleLogout} />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
-        />
+  path="/dashboard"
+  element={
+    user?.role === "admin" ? (
+      <Dashboard user={user} handleLogout={handleLogout} />
+    ) : (
+      <Navigate to="/" />
+    )
+  }
+/>
 
         <Route
-          path="/planets"
-          element={
-            user ? (
-              <PlanetPage handleLogout={handleLogout} />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
-        />
+  path="/planets"
+  element={
+    user ? (
+      <PlanetPage />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
 
         <Route
-          path="/planets/:planetId"
-          element={
-            user ? (
-              <PlanetDetails user={user} />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
-        />
+  path="/planets/:planetId"
+  element={
+    user ? (
+      <PlanetDetails user={user} />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
 
         <Route
           path="/planets/new"
@@ -106,6 +107,16 @@ function App() {
             )
           }
         />
+        <Route
+  path="/explore/planets"
+  element={
+    user ? (
+      <UserPlanetPage />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
 
         <Route
           path="/missions"
@@ -149,7 +160,6 @@ function App() {
       }
    />
 
-        <Route path="/admin" element={<Dashboard />} />
       </Routes>
     </div>
   );
