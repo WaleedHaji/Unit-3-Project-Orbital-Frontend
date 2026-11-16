@@ -33,6 +33,8 @@ function Dashboard({ user, handleLogout }) {
         updatedPlanets: []
     })
     const [totalUsers, setTotalUsers] = useState(0)
+    const [missions, setMissions] = useState([])
+    const [astronauts, setAstronauts] = useState([])
     const navigate = useNavigate()
 
     // get all planets
@@ -47,6 +49,40 @@ function Dashboard({ user, handleLogout }) {
         }
         getPlanets()
     }, [])
+
+    // Get all missions
+useEffect(() => {
+    async function getMissions() {
+        try {
+            const response = await axios.get(
+                `${import.meta.env.VITE_BACK_END_SERVER_URL}/missions`
+            )
+
+            setMissions(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    getMissions()
+}, [])
+
+// Get all astronauts
+useEffect(() => {
+    async function getAstronauts() {
+        try {
+            const response = await axios.get(
+                `${import.meta.env.VITE_BACK_END_SERVER_URL}/astronauts`
+            )
+
+            setAstronauts(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    getAstronauts()
+}, [])
 
     //recent activity
     useEffect(() => {
@@ -83,6 +119,7 @@ function Dashboard({ user, handleLogout }) {
 
         getTotalUsers()
     }, [])
+ 
 
 
     return (
@@ -149,7 +186,7 @@ function Dashboard({ user, handleLogout }) {
                             <div className="stat-card mission-card">
                                 <Rocket size={38} />
                                 <div>
-                                    <p>24</p>
+                                    <p>{missions.length}</p>
                                     <h3>Space Missions</h3>
                                 </div>
                             </div>
@@ -157,7 +194,7 @@ function Dashboard({ user, handleLogout }) {
                             <div className="stat-card astronaut-card">
                                 <UserRound size={38} />
                                 <div>
-                                    <p>15</p>
+                                    <p>{astronauts.length}</p>
                                     <h3>Astronauts</h3>
                                 </div>
                             </div>
