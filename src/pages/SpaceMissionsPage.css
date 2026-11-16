@@ -7,14 +7,10 @@
 
 .missions-page {
   min-height: 100vh;
-  padding: 35px 5% 30px;
+  padding: 105px 5% 30px;
   color: #fff;
-  background:
-    radial-gradient(circle at 75% 5%, rgba(75, 67, 160, 0.2), transparent 35%),
-    radial-gradient(circle at 5% 60%, rgba(105, 55, 160, 0.13), transparent 35%),
-    #050817;
-  font-family: "Nunito", sans-serif;
-  overflow: hidden;
+  position: relative;
+  overflow: visible;
 }
 
 /* HERO */

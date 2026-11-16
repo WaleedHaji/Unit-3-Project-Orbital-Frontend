@@ -3,12 +3,10 @@
 
 .astronauts-page {
   min-height: 100vh;
-  padding: 35px 5% 30px;
-  color: #ffffff;
-  font-family: "Nunito", sans-serif;
-  background:
-    radial-gradient(circle at 80% 10%, #17183b, transparent 30%),
-    linear-gradient(145deg, #070b1d, #10152e 55%, #080d20);
+  padding: 105px 5% 30px;
+  position: relative;
+  overflow: visible;
+  
 }
 
 .astronauts-hero {

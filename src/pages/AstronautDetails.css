@@ -1,7 +1,7 @@
 
 .astronaut-details-page {
   min-height: 100vh;
-  padding: 40px 5%;
+  padding: 105px 5% 40px;
   color: #fff;
   font-family: "Nunito", sans-serif;
   background:
@@ -217,9 +217,18 @@
   line-height: 1.6;
 }
 
+.astronaut-profile-image {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+}
+
 @media (max-width: 600px) {
   .astronaut-details-page {
-    padding: 25px 4%;
+    padding: 95px 4% 25px;
   }
 
   .astronaut-details-card {
@@ -237,12 +246,4 @@
   .astronaut-missions-section h2 {
     font-size: 25px;
   }
-}
-.astronaut-profile-image {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 20px auto;
 }

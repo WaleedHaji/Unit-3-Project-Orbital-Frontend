@@ -111,6 +111,33 @@ function AstronautsPage({ user, handleLogout }) {
       <main className="astronauts-page">
         <Starfield />
 
+        {/* HERO SECTION */}
+        <section className="astronauts-hero">
+          <div className="astronauts-hero-content">
+            <div className="astronauts-eyebrow">
+              <span></span>
+              THE PEOPLE BEHIND SPACE EXPLORATION
+            </div>
+
+            <h1>
+              Meet the <span>Explorers</span>
+            </h1>
+
+            <p>
+              Discover the brave pioneers who travel beyond Earth
+              and make humanity's greatest space discoveries possible.
+            </p>
+
+            <div className="astronauts-hero-line"></div>
+          </div>
+
+          <div className="astronauts-hero-orbit">
+            <div className="astronauts-orbit orbit-one"></div>
+            <div className="astronauts-orbit orbit-two"></div>
+            <div className="astronauts-planet"></div>
+          </div>
+        </section>
+
         <section className="astronauts-stats">
           <div className="astronaut-stat">
             <span className="astronaut-stat-number">
