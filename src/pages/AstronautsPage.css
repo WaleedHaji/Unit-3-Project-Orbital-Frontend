@@ -6,7 +6,6 @@
   padding: 105px 5% 30px;
   position: relative;
   overflow: visible;
-  
 }
 
 .astronauts-hero {
@@ -321,33 +320,21 @@
   }
 }
 
-/* Fixed sidebar layout */
+/* Admin sidebar layout */
 .astronauts-admin-layout {
   display: flex;
   min-height: 100vh;
   position: relative;
 }
 
-.astronauts-admin-layout > .sidebar {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  width: 259px;
-  height: calc(100vh - 70px);
-  flex-shrink: 0;
-  z-index: 10;
-  overflow-y: auto;
-  background: #050817;
-  opacity: 1;
-}
-
 .astronauts-admin-layout > .astronauts-page {
   margin-left: 259px;
   width: calc(100% - 259px);
-  min-width: 0;
   flex: none;
+  min-width: 0;
 }
 
+/* Responsive layout */
 @media (max-width: 1000px) {
   .astronauts-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -406,6 +393,8 @@
     font-size: 10px;
   }
 }
+
+/* Regular user layout */
 .astronauts-user-layout {
   min-height: 100vh;
   width: 100%;
