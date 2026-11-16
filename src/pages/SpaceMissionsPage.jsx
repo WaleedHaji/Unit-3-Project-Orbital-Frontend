@@ -140,6 +140,48 @@ function SpaceMissionsPage({ user, handleLogout }) {
       <main className="missions-page">
         <Starfield />
 
+        {/* HERO SECTION */}
+        <section className="missions-hero">
+          <div className="hero-content">
+            <div className="hero-eyebrow">
+              <span className="hero-eyebrow-line"></span>
+              BEYOND THE LIMITS OF EARTH
+            </div>
+
+            <h1>
+              Discover the <span>Unknown</span>
+            </h1>
+
+            <p>
+              Explore humanity's greatest space missions, from historic
+              journeys to the future of space exploration.
+            </p>
+
+            <button
+              className="hero-explore-button"
+              onClick={() =>
+                document.getElementById("mission-collection")?.scrollIntoView({
+                  behavior: "smooth"
+                })
+              }
+            >
+              Explore Missions <span>→</span>
+            </button>
+          </div>
+
+          <div className="hero-orbit-art">
+            <div className="orbit orbit-one"></div>
+            <div className="orbit orbit-two"></div>
+            <div className="orbit orbit-three"></div>
+            <div className="orbit-planet"></div>
+            <div className="orbit-moon"></div>
+            <span className="orbit-star star-one">✦</span>
+            <span className="orbit-star star-two">✧</span>
+            <span className="orbit-star star-three">✦</span>
+          </div>
+        </section>
+
+        {/* STATISTICS */}
         <section className="mission-stats">
           <div className="stat-item">
             <span className="stat-number">{missions.length}</span>
@@ -162,6 +204,7 @@ function SpaceMissionsPage({ user, handleLogout }) {
           </div>
         </section>
 
+        {/* FEATURED MISSION */}
         {featuredMission && (
           <section className="featured-section">
             <div className="section-heading">
@@ -216,6 +259,7 @@ function SpaceMissionsPage({ user, handleLogout }) {
           </section>
         )}
 
+        {/* MISSION COLLECTION */}
         <section className="mission-collection" id="mission-collection">
           <div className="collection-heading">
             <div>

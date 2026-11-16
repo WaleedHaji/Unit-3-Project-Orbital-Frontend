@@ -9,7 +9,7 @@
 /* MAIN PAGE */
 .mission-details-page {
   min-height: 100vh;
-  padding: 35px 7%;
+  padding: 105px 7% 35px;
   color: #f4f5ff;
   font-family: "Inter", sans-serif;
   background:
@@ -455,7 +455,7 @@
 /* RESPONSIVE */
 @media (max-width: 850px) {
   .mission-details-page {
-    padding: 25px 5%;
+    padding: 95px 5% 25px;
   }
 
   .details-hero {
@@ -474,7 +474,7 @@
 
 @media (max-width: 500px) {
   .mission-details-page {
-    padding: 20px 4%;
+    padding: 95px 4% 20px;
   }
 
   .details-hero,
