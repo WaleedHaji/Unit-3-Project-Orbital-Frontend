@@ -125,10 +125,17 @@ function PlanetDetails({ user }) {
             </li>
           ))}
         </ul>
+        <button
+  className="back-dashboard"
+  onClick={() => navigate("/dashboard")}
+>
+  ← Back to Dashboard
+</button>
       </aside>
 
       {/* MAIN CONTENT */}
       <main className="planet-content">
+        
 
         {planet ? (
           <>

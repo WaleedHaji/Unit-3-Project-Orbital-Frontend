@@ -16,6 +16,30 @@
     #050817;
   font-family: "Nunito", sans-serif;
 }
+.back-dashboard {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  margin-bottom: 25px;
+
+  color: #d8caff;
+  background: rgba(125, 82, 210, 0.15);
+  border: 1px solid rgba(169, 125, 255, 0.4);
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.back-dashboard:hover {
+  color: white;
+  background: linear-gradient(100deg, #7148c7, #7856d8);
+  border-color: #a77aff;
+  transform: translateX(-4px);
+}
 
 /* LEFT SIDEBAR */
 .planet-sidebar {
