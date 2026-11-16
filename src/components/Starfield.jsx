@@ -18,15 +18,16 @@ function Starfield() {
 
     setStars(newStars);
 
-    const interval = setInterval(() => {
-      const id = Date.now();
+    let shootingStarId = 0;
 
-      setShootingStars((current) => [
-        ...current,
+    const interval = setInterval(() => {
+      const id = shootingStarId++;
+
+      setShootingStars([
         {
           id,
-          left: Math.random() * 70 + 20,
-          top: Math.random() * 50,
+          left: Math.random() * 75 + 20,
+          top: Math.random() * 45 + 5,
         },
       ]);
 
@@ -35,7 +36,7 @@ function Starfield() {
           current.filter((star) => star.id !== id)
         );
       }, 1600);
-    }, 4000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, []);
