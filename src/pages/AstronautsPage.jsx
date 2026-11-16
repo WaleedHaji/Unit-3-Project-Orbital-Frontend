@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import "./AstronautsPage.css";
 import Starfield from "../components/Starfield";
+import '../css/Dashboard.css'
+
 
 function AstronautsPage({ handleLogout }) {
   const [astronauts, setAstronauts] = useState([]);
@@ -72,7 +74,7 @@ function AstronautsPage({ handleLogout }) {
         <nav>
           <Link to="/dashboard">
             <House size={20} />
-            Back to Dashboard
+            Dashboard
           </Link>
 
           <Link to="/planets">
@@ -104,32 +106,7 @@ function AstronautsPage({ handleLogout }) {
       <main className="astronauts-page">
         <Starfield />
 
-        <section className="astronauts-hero">
-          <div className="astronauts-hero-content">
-            <div className="astronauts-eyebrow">
-              <span></span>
-              MEET THE EXPLORERS
-            </div>
-
-            <h1>
-              Space <span>Explorers</span>
-            </h1>
-
-            <p>
-              Discover the people who dare to go beyond Earth
-              <br />
-              and make history among the stars.
-            </p>
-
-            <div className="astronauts-hero-line"></div>
-          </div>
-
-          <div className="astronauts-hero-orbit">
-            <div className="astronauts-orbit orbit-one"></div>
-            <div className="astronauts-orbit orbit-two"></div>
-            <div className="astronauts-planet"></div>
-          </div>
-        </section>
+        
 
         <section className="astronauts-stats">
           <div className="astronaut-stat">

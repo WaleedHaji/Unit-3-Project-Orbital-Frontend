@@ -884,11 +884,7 @@
   position: relative;
 }
 
-.missions-admin-layout > .sidebar {
-  flex-shrink: 0;
-  position: relative;
-  z-index: 10;
-}
+
 
 .missions-admin-layout > .missions-page {
   flex: 1;
@@ -896,18 +892,6 @@
 }
 
 
-.missions-admin-layout > .sidebar {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  width: 259px;
-  height: calc(100vh - 70px);
-  z-index: 10;
-  overflow-y: auto;
-  flex-shrink: 0;
- 
-  opacity: 1;
-}
 
 
 .missions-admin-layout > .missions-page {

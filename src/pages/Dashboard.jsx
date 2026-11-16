@@ -103,7 +103,7 @@ function Dashboard({ user, handleLogout }) {
 
                     <nav>
                    <Link to="/dashboard" className="active">
-                   <House size={20} /> Back to Dashboard
+                   <House size={20} />Dashboard
                     </Link>
 
                    <Link to="/planets">
