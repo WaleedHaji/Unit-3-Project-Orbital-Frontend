@@ -900,4 +900,12 @@
   flex: none;
   min-width: 0;
 }
+.missions-user-layout {
+  min-height: 100vh;
+  width: 100%;
+}
 
+.missions-user-layout > .missions-page {
+  width: 100%;
+  margin-left: 0;
+}

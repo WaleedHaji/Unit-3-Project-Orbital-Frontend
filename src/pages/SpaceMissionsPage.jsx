@@ -11,10 +11,9 @@ import {
 } from "lucide-react";
 import "./SpaceMissionsPage.css";
 import Starfield from "../components/Starfield";
-import '../css/Dashboard.css'
+import "../css/Dashboard.css";
 
-
-function SpaceMissionsPage({ handleLogout }) {
+function SpaceMissionsPage({ user, handleLogout }) {
   const [missions, setMissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -22,6 +21,7 @@ function SpaceMissionsPage({ handleLogout }) {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const navigate = useNavigate();
+  const isAdmin = user?.role === "admin";
 
   useEffect(() => {
     async function fetchMissions() {
@@ -93,54 +93,52 @@ function SpaceMissionsPage({ handleLogout }) {
   }
 
   return (
-    <div className="missions-admin-layout">
-
-      {/* ADMIN SIDEBAR */}
-      <aside className="sidebar">
-        <div className="sidebar-logo">
-          <Orbit size={38} />
-          <div>
-            <h2>Orbital</h2>
-            <p>Admin Panel</p>
+    <div
+      className={
+        isAdmin ? "missions-admin-layout" : "missions-user-layout"
+      }
+    >
+      {isAdmin && (
+        <aside className="sidebar">
+          <div className="sidebar-logo">
+            <Orbit size={38} />
+            <div>
+              <h2>Orbital</h2>
+              <p>Admin Panel</p>
+            </div>
           </div>
-        </div>
 
-        <nav>
-          <Link to="/dashboard">
-            <House size={20} />
-           Dashboard
-          </Link>
+          <nav>
+            <Link to="/dashboard">
+              <House size={20} />
+              Dashboard
+            </Link>
 
-          <Link to="/planets">
-            <Orbit size={20} />
-            Planets
-          </Link>
+            <Link to="/planets">
+              <Orbit size={20} />
+              Planets
+            </Link>
 
-          <Link to="/missions" className="active">
-            <Rocket size={20} />
-            Space Missions
-          </Link>
+            <Link to="/missions" className="active">
+              <Rocket size={20} />
+              Space Missions
+            </Link>
 
-          <Link to="/astronauts">
-            <UserRound size={20} />
-            Astronauts
-          </Link>
-        </nav>
+            <Link to="/astronauts">
+              <UserRound size={20} />
+              Astronauts
+            </Link>
+          </nav>
 
-        <button
-          className="logout-button"
-          onClick={handleLogout}
-        >
-          <LogOut size={20} />
-          Logout
-        </button>
-      </aside>
+          <button className="logout-button" onClick={handleLogout}>
+            <LogOut size={20} />
+            Logout
+          </button>
+        </aside>
+      )}
 
-      {/* MISSIONS PAGE */}
       <main className="missions-page">
         <Starfield />
-
-       
 
         <section className="mission-stats">
           <div className="stat-item">
@@ -254,7 +252,11 @@ function SpaceMissionsPage({ handleLogout }) {
               {["All", "Ongoing", "Upcoming", "Completed"].map((filter) => (
                 <button
                   key={filter}
-                  className={activeFilter === filter ? "filter-button active" : "filter-button"}
+                  className={
+                    activeFilter === filter
+                      ? "filter-button active"
+                      : "filter-button"
+                  }
                   onClick={() => setActiveFilter(filter)}
                 >
                   {filter}

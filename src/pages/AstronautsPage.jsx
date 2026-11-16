@@ -11,16 +11,16 @@ import {
 } from "lucide-react";
 import "./AstronautsPage.css";
 import Starfield from "../components/Starfield";
-import '../css/Dashboard.css'
+import "../css/Dashboard.css";
 
-
-function AstronautsPage({ handleLogout }) {
+function AstronautsPage({ user, handleLogout }) {
   const [astronauts, setAstronauts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
+  const isAdmin = user?.role === "admin";
 
   useEffect(() => {
     async function fetchAstronauts() {
@@ -59,68 +59,75 @@ function AstronautsPage({ handleLogout }) {
   }
 
   return (
-    <div className="astronauts-admin-layout">
-
-      {/* ADMIN SIDEBAR */}
-      <aside className="sidebar">
-        <div className="sidebar-logo">
-          <Orbit size={38} />
-          <div>
-            <h2>Orbital</h2>
-            <p>Admin Panel</p>
+    <div
+      className={
+        isAdmin
+          ? "astronauts-admin-layout"
+          : "astronauts-user-layout"
+      }
+    >
+      {isAdmin && (
+        <aside className="sidebar">
+          <div className="sidebar-logo">
+            <Orbit size={38} />
+            <div>
+              <h2>Orbital</h2>
+              <p>Admin Panel</p>
+            </div>
           </div>
-        </div>
 
-        <nav>
-          <Link to="/dashboard">
-            <House size={20} />
-            Dashboard
-          </Link>
+          <nav>
+            <Link to="/dashboard">
+              <House size={20} />
+              Dashboard
+            </Link>
 
-          <Link to="/planets">
-            <Orbit size={20} />
-            Planets
-          </Link>
+            <Link to="/planets">
+              <Orbit size={20} />
+              Planets
+            </Link>
 
-          <Link to="/missions">
-            <Rocket size={20} />
-            Space Missions
-          </Link>
+            <Link to="/missions">
+              <Rocket size={20} />
+              Space Missions
+            </Link>
 
-          <Link to="/astronauts" className="active">
-            <UserRound size={20} />
-            Astronauts
-          </Link>
-        </nav>
+            <Link to="/astronauts" className="active">
+              <UserRound size={20} />
+              Astronauts
+            </Link>
+          </nav>
 
-        <button
-          className="logout-button"
-          onClick={handleLogout}
-        >
-          <LogOut size={20} />
-          Logout
-        </button>
-      </aside>
+          <button
+            className="logout-button"
+            onClick={handleLogout}
+          >
+            <LogOut size={20} />
+            Logout
+          </button>
+        </aside>
+      )}
 
-      {/* ASTRONAUTS PAGE */}
       <main className="astronauts-page">
         <Starfield />
-
-        
 
         <section className="astronauts-stats">
           <div className="astronaut-stat">
             <span className="astronaut-stat-number">
               {astronauts.length}
             </span>
-            <span className="astronaut-stat-label">SPACE EXPLORERS</span>
+            <span className="astronaut-stat-label">
+              SPACE EXPLORERS
+            </span>
           </div>
 
           <div className="astronaut-stat">
             <span className="astronaut-stat-number">
               {new Set(astronauts.map((a) => a.spaceAgency)).size}
             </span>
-            <span className="astronaut-stat-label">SPACE AGENCIES</span>
+            <span className="astronaut-stat-label">
+              SPACE AGENCIES
+            </span>
           </div>
         </section>
 
