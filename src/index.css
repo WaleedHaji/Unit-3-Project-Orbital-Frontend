@@ -6,16 +6,7 @@ nav a{
     margin-right: 10px,
 }
 
-.logoDiv {
-  background-image: url('./Orbital logo.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 
-  width: 200px;
-  height: 200px;
-
-}
 
 /* NAVBAR */
 .navbar {
@@ -114,30 +105,10 @@ nav a{
   min-height: 100vh;
 }
 
-.webTitle-homepage {
-  margin: 5px;
-  color: white;
-  font-family: 'Nunito', sans-serif;
-  font-size: 3.5rem;
-  font-weight: 800;
-  text-align: center;
-  width: 200px;
-  height: 66px;
-}
 
-.subTitle {
-  margin: auto;
-  font-family: 'Nunito', sans-serif;
-  padding-left: 5px;
-}
 
-.logoTitleDiv{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
 
-.homepageTitlesContainer {
-  display: flex;
-  flex-direction: column;
-}
+
+
+
+
