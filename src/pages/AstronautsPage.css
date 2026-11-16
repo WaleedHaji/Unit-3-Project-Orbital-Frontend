@@ -399,15 +399,29 @@
 }
 
 
+.astronauts-admin-layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
 .astronauts-admin-layout > .sidebar {
-  flex-shrink: 0;
   position: fixed;
-  top: 0;
+  top: 70px;
   left: 0;
   width: 259px;
-  height: 100vh;
-  z-index: 1000;
+  height: calc(100vh - 70px);
+  flex-shrink: 0;
+  z-index: 10;
   overflow-y: auto;
+  opacity: 1;
+}
+
+.astronauts-admin-layout > .astronauts-page {
+  margin-left: 259px;
+  width: calc(100% - 259px);
+  min-width: 0;
+  flex: none;
 }
 
 

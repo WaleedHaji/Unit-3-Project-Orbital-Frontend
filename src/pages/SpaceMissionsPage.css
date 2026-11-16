@@ -897,15 +897,18 @@
 
 
 .missions-admin-layout > .sidebar {
-  flex-shrink: 0;
   position: fixed;
-  top: 0;
+  top: 70px;
   left: 0;
   width: 259px;
-  height: 100vh;
-  z-index: 1000;
+  height: calc(100vh - 70px);
+  z-index: 10;
   overflow-y: auto;
+  flex-shrink: 0;
+ 
+  opacity: 1;
 }
+
 
 .missions-admin-layout > .missions-page {
   margin-left: 259px;

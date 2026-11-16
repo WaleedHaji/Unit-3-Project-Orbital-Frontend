@@ -10,12 +10,17 @@ body {
     background-image: url('../pictues/space-background.png')
 }
 
+
+
 .sidebar {
-    width: 350px;
-    height: 100vh;
-    padding: 25px 15px;
-    background-color: #11162e;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    box-sizing: border-box;
 }
+
 
 .dashboard-main {
     padding: 20px;
