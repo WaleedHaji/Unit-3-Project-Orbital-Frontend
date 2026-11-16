@@ -120,14 +120,26 @@ function App() {
 
 
         <Route
-          path="/missions"
-          element={<SpaceMissionsPage handleLogout={handleLogout} />}
-        />
+  path="/missions"
+  element={
+    user ? (
+      <SpaceMissionsPage handleLogout={handleLogout} />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
 
         <Route
-          path="/missions/:missionId"
-          element={<MissionDetails user={user} />}
-        />
+  path="/missions/:missionId"
+  element={
+    user ? (
+      <MissionDetails user={user} />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
 
         <Route
           path="/missions/new"
@@ -141,14 +153,25 @@ function App() {
         />
 
         <Route
-          path="/astronauts"
-          element={<AstronautsPage handleLogout={handleLogout} />}
-        />
-
+  path="/astronauts"
+  element={
+    user ? (
+      <AstronautsPage handleLogout={handleLogout} />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
         <Route
-          path="/astronauts/:astronautId"
-          element={<AstronautDetails user={user} />}
-        />
+  path="/astronauts/:astronautId"
+  element={
+    user ? (
+      <AstronautDetails user={user} />
+    ) : (
+      <Navigate to="/sign-in" />
+    )
+  }
+/>
 
       <Route
       path="/astronauts/new"
